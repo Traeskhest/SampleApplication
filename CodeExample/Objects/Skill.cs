@@ -2,24 +2,30 @@
 {
     using System;
     using Views;
-
     public class Skill
     {
-        private RelayCommand _visitPageCommand;
-        public string Name { get; set; }
-        public DateTime Start { get; set; }
-        public Level Level { get; set; }
-        public string Page { get; set; }
-        public RelayCommand VisitPageCommand
+        public Skill(string name, DateTime start, Level level, string page = "")
         {
-            get
-            {
-                return _visitPageCommand
-                       ?? (_visitPageCommand =
-                           new RelayCommand(
-                               o => System.Diagnostics.Process.Start(Page),
-                               o => !string.IsNullOrEmpty(Page)));
-            }
+            Name = name;
+            Start = start;
+            Level = level;
+            Page = page;
+            VisitPageCommand = new RelayCommand(ExecuteStart, o => !string.IsNullOrEmpty(Page));
+        }
+
+        public string Name { get; }
+
+        public DateTime Start { get; }
+
+        public Level Level { get; }
+
+        public string Page { get; }
+
+        public RelayCommand VisitPageCommand { get; }
+
+        private void ExecuteStart(object obj)
+        {
+            System.Diagnostics.Process.Start(Page);
         }
     }
 }

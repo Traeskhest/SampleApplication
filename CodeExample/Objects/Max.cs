@@ -7,16 +7,20 @@
 
     public class Max : INotifyPropertyChanged
     {
+        private int _age;
+
         public Max()
         {
-            Age = 25;
+            _age = 25;
         }
-
-        private int _age;
         public string LastName => "Anderung";
+
         public string FirstName => "Max";
-        public string FullName => string.Concat(FirstName, " : ", LastName);
+
+        public string FullName => $"{FirstName} , {LastName}";
+
         public string AboutMe => Resources.AboutMe;
+
         public int Age
         {
             get
@@ -33,6 +37,7 @@
                 OnPropertyChanged();
             }
         }
+
         public string Email => "max.anderung@gmail.com";
 
         public event PropertyChangedEventHandler PropertyChanged;

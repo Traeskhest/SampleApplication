@@ -1,38 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CodeExample.Views
+﻿namespace CodeExample.Views
 {
     using System.ComponentModel;
-    using System.IO;
     using System.Runtime.CompilerServices;
-
-    using CodeExample.Annotations;
-    using CodeExample.Objects;
-
-    using Gu.Reactive;
+    using Annotations;
+    using Objects;
 
     public class AboutMeViewModel : INotifyPropertyChanged
     {
-        private RelayCommand _senEmailCommand;
-
-        public Max Me => new Max();
-        public RelayCommand SendEmailCommand
+        public AboutMeViewModel()
         {
-            get
-            {
-                return _senEmailCommand
-                       ?? (_senEmailCommand =
-                           new RelayCommand(
-                               o => System.Diagnostics.Process.Start(string.Concat("mailto:", Me.Email)),
-                               o => true));
-            }
+            SendEmailCommand = new RelayCommand(SendEmail, o => !string.IsNullOrEmpty(Me.Email));
         }
+        
+        public Max Me => new Max();
 
+        public RelayCommand SendEmailCommand { get; }
 
+        private void SendEmail(object obj)
+        {
+            var adress = $"mailto:{Me.Email}";
+            System.Diagnostics.Process.Start(adress);
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

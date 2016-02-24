@@ -1,7 +1,6 @@
 ﻿namespace CodeExample
 {
     using System.Windows;
-
     public static class ModernWindowBehavior
     {
         public static readonly DependencyProperty FrameTopContentProperty = DependencyProperty.RegisterAttached(

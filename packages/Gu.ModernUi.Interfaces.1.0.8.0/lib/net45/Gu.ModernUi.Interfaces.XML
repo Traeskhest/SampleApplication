@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Gu.ModernUi.Interfaces</name>
+    </assembly>
+    <members>
+        <member name="M:Gu.ModernUi.Interfaces.IDialogHandler.Show(System.String,System.String,Gu.ModernUi.Interfaces.MessageBoxButtons)">
+            <summary>
+            Shows a popup and returns the result.
+            Can be called from any thread. 
+            </summary>
+            <param name="title"></param>
+            <param name="message"></param>
+            <param name="buttons"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gu.ModernUi.Interfaces.IDialogHandler.Show(System.String,System.String,Gu.ModernUi.Interfaces.MessageBoxButtons,Gu.ModernUi.Interfaces.MessageBoxIcon)">
+            <summary>
+            Shows a popup and returns the result.
+            Can be called from any thread. 
+            </summary>
+            <param name="title"></param>
+            <param name="message"></param>
+            <param name="buttons"></param>
+            <param name="icon"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gu.ModernUi.Interfaces.IDialogHandler.Show(System.Object,System.String,Gu.ModernUi.Interfaces.MessageBoxButtons)">
+            <summary>
+            Shows a popup and returns the result.
+            Can be called from any thread. 
+            </summary>
+            <param name="content"></param>
+            <param name="title"></param>
+            <param name="buttons"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

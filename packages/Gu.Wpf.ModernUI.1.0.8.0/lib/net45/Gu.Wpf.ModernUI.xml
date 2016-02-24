@@ -1,0 +1,3514 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Gu.Wpf.ModernUI</name>
+    </assembly>
+    <members>
+        <member name="T:Gu.Wpf.ModernUI.ModernPresenter">
+            <summary>
+            ModernPresenter allows controls to have multiple parents.
+            This is useful for performance as it allows aggressive caching
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.ModernPresenter.ContentLoader">
+            <summary>
+            Gets or sets the content loader.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.ModernPresenter.CurrentSource">
+            <summary>
+            Gets or sets the source of the current content.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.TypeConverters.ITypeConverter`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.DialogViewModel">
+            <summary>
+            The viewmodel for a modernpopup
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.ILink.DisplayName">
+            <summary>
+            Gets or sets the display name.
+            </summary>
+            <value>The display name.</value>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.ILink.Source">
+            <summary>
+            Gets or sets the source uri.
+            </summary>
+            <value>The source.</value>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.ILink.CanNavigate">
+            <summary>
+            Gets if the current linknavigator can navigate to Source
+            This is updated by LinkCommands.OnCanNavigateLink
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.ILink.IsNavigatedTo">
+            <summary>
+            Gets if the current navigationtarget Source == this.Source
+            This is updated by LinkCommands.OnCanNavigateLink
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.ILink.LinkNavigator">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.LinkGroupLinks">
+            <summary>
+            The links in a linkgroup
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.ModernLinks">
+            <summary>
+            Base class for links
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.INavigator">
+            <summary>
+            This is an interface for controls that responds to LinkCommands.NavigateLink
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.ModernLinks.SelectedLinkPropertyKey">
+            <summary>
+            Identifies the SelectedSource dependency property.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.ModernLinks.OrientationProperty">
+            <summary>
+            Identifies the Orientation dependency property.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.ModernLinks.SelectedLink">
+            <summary>
+            Gets or sets the source URI of the selected link.
+            </summary>
+            <value>The source URI of the selected link.</value>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.ModernLinks.SelectedSource">
+            <summary>
+            Get or sets the Uri of the selected Link
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.ModernLinks.Gu#Wpf#ModernUI#INavigator#SelectedSource">
+            <summary>
+            Explicit implementation here to set current value
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.ModernLinks.Orientation">
+            <summary>
+            Gets or sets a value indicating how the tab should be rendered.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.ModernLinks.NavigationTarget">
+            <summary>
+            Get or sets the target frame
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.ModernLinks.LinkNavigator">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.TabLinks">
+            <summary>
+            The links shown in a ModernTab
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.MarkupConverter`2">
+            <summary>
+            Class implements a base for a typed value converter used as a markup extension. Override the Convert method in the inheriting class
+            </summary>
+            <typeparam name="TInput">Type of the expected input - value to be converted</typeparam>
+            <typeparam name="TResult">Type of the result of the conversion</typeparam>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.TypeConverters.TypeConverterFactory.IsEnumOrNullableEnum(System.Type)">
+            <summary>
+            http://msdn.microsoft.com/en-us/library/ms366789.aspx
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.ICancelNavigation.OnNavigatingFrom(Gu.Wpf.ModernUI.Navigation.NavigatingCancelEventArgs)">
+            <summary>
+            Called just before this instance is no longer the active content in a frame.
+            </summary>
+            <param name="e">An object that contains the navigation data.</param>
+            <remarks>The method is also invoked when parent frames are about to navigate.</remarks>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.ContentAdorner">
+            <summary>
+            http://tech.pro/tutorial/856/wpf-tutorial-using-a-visual-collection
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Link">
+            <summary>
+            A link that navigates to things
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.Link.DisplayNameProperty">
+            <summary>
+            Identifies the DisplayName property.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.Link.SourceProperty">
+            <summary>
+            Identifies the SourceProperty property.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.Link.LinkNavigatorProperty">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Link.DisplayName">
+            <summary>
+            Gets or sets the display name.
+            </summary>
+            <value>The display name.</value>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Link.Source">
+            <summary>
+            Gets or sets the source uri.
+            </summary>
+            <value>The source.</value>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Link.CanNavigate">
+            <summary>
+            Gets if the current linknavigator can navigate to Source
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Link.Gu#Wpf#ModernUI#ILink#CanNavigate">
+            <summary>
+            LinkCommands updates this
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Link.IsNavigatedTo">
+            <summary>
+            Gets if the current navigationtarget Source == this.Source
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Link.Gu#Wpf#ModernUI#ILink#IsNavigatedTo">
+            <summary>
+            LinkCommands updates this
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Link.LinkNavigator">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.ModernPopup">
+            <summary>
+            A control for showing messages ribbon style
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.ModernPopup.ShowDialog(Gu.Wpf.ModernUI.DialogViewModel)">
+            <summary>
+            Showing a standard dialog as fallback.
+            </summary>
+            <param name="vm"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.Internals.TypeExt.PrettyName(System.Type)">
+            <summary>
+            Returns nicely formatted type names for generic types.
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.Internals.TypeExt.IsNullable(System.Type)">
+            <summary>
+            Check if a type is Nullable`1
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Internals.ContentCache">
+            <summary>
+            Helper class for managing cached content
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.Internals.ContentCache.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.Internals.ContentCache.Clear">
+            <summary>
+            Clear
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.Internals.ContentCache.AddOrUpdate(System.Uri,System.Object)">
+            <summary>
+            Adds or updates 
+            </summary>
+            <param name="uri"></param>
+            <param name="content"></param>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.Internals.ContentCache.TryGetValue(System.Uri,System.Object@)">
+            <summary>
+            
+            </summary>
+            <param name="newValue"></param>
+            <param name="newContent"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.TitleLinks">
+            <summary>
+            The links shown in the window border
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.DefaultDialogHandler">
+            <summary>
+            Shows banner dialogs over a Window
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.DefaultDialogHandler.Show(System.String,System.String,Gu.ModernUi.Interfaces.MessageBoxButtons)">
+            <summary>
+            Shows a popup and returns the result.
+            Can be called from any thread. 
+            </summary>
+            <param name="title"></param>
+            <param name="message"></param>
+            <param name="buttons"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.DefaultDialogHandler.Show(System.String,System.String,Gu.ModernUi.Interfaces.MessageBoxButtons,Gu.ModernUi.Interfaces.MessageBoxIcon)">
+            <summary>
+            Shows a popup and returns the result.
+            Can be called from any thread. 
+            </summary>
+            <param name="title"></param>
+            <param name="message"></param>
+            <param name="buttons"></param>
+            <param name="icon"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.DefaultDialogHandler.Show(System.Object,System.String,Gu.ModernUi.Interfaces.MessageBoxButtons)">
+            <summary>
+            Shows a popup and returns the result.
+            Can be called from any thread. 
+            </summary>
+            <param name="title"></param>
+            <param name="content">The content to render</param>
+            <param name="buttons"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Internals.ModernUIHelper">
+            <summary>
+            Provides various common helper methods.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.Internals.ModernUIHelper.GetDpiAwereness">
+            <summary>
+            Gets the DPI awereness of the current process.
+            </summary>
+            <returns>
+            The DPI awareness of the current process
+            </returns>
+            <exception cref="T:System.ComponentModel.Win32Exception"></exception>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.Internals.ModernUIHelper.TrySetPerMonitorDpiAware">
+            <summary>
+            Attempts to set the DPI awareness of this process to PerMonitorDpiAware
+            </summary>
+            <returns>A value indicating whether the DPI awareness has been set to PerMonitorDpiAware.</returns>
+            <remarks>
+            <para>
+            For this operation to succeed the host OS must be Windows 8.1 or greater, and the initial
+            DPI awareness must be set to DpiUnaware (apply [assembly:DisableDpiAwareness] to application assembly).
+            </para>
+            <para>
+            When the host OS is Windows 8 or lower, an attempt is made to set the DPI awareness to SystemDpiAware (= WPF default). This
+            effectively revokes the [assembly:DisableDpiAwareness] attribute if set.
+            </para>
+            </remarks>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Internals.ModernUIHelper.IsInDesignMode">
+            <summary>
+            Determines whether the current code is executed in a design time environment such as Visual Studio or Blend.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Navigation.DefaultLinkNavigator">
+            <summary>
+            The default link navigator with support for loading frame content, external link navigation using the default browser and command execution.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.ILinkNavigator">
+            <summary>
+            The hyperlink navigator contract.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.ILinkNavigator.CanNavigate(Gu.Wpf.ModernUI.ModernFrame,System.Uri)">
+            <summary>
+            Checks if navigation can be performed to the e
+            </summary>
+            <param name="target">The target frame, can be null</param>
+            <param name="uri">Used when the link is a command</param>
+            <returns>If the e can be navigated to</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Gu.Wpf.ModernUI.ILinkNavigator.CanNavigate(Gu.Wpf.ModernUI.INavigator,Gu.Wpf.ModernUI.ILink,System.Windows.Input.CanExecuteRoutedEventArgs)" -->
+        <member name="M:Gu.Wpf.ModernUI.ILinkNavigator.Navigate(Gu.Wpf.ModernUI.ModernFrame,System.Uri)">
+            <summary>
+            Performs navigation to specified link.
+            </summary>
+            <param name="target">The target frame, can be null</param>
+            <param name="uri">Used when the link is a command</param>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.ILinkNavigator.Commands">
+            <summary>
+            Gets or sets the navigable commands.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.Navigation.DefaultLinkNavigator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Gu.Wpf.ModernUI.Navigation.DefaultLinkNavigator"/> class.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.Navigation.DefaultLinkNavigator.CanNavigate(Gu.Wpf.ModernUI.ModernFrame,System.Uri)">
+            <summary>
+            Checks if navigation can be performed to the link
+            </summary>
+            <param name="target">The target frame, can be null</param>
+            <param name="uri">Used when the link is a command</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.Navigation.DefaultLinkNavigator.Navigate(Gu.Wpf.ModernUI.ModernFrame,System.Uri)">
+            <summary>
+            Performs navigation to specified link.
+            </summary>
+            <param name="target">The target frame, can be null</param>
+            <param name="uri">Used when the link is a command</param>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Navigation.DefaultLinkNavigator.ExternalSchemes">
+            <summary>
+            Gets or sets the schemes for external link navigation.
+            </summary>
+            <remarks>
+            Default schemes are http, https and mailto.
+            </remarks>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Navigation.DefaultLinkNavigator.Commands">
+            <summary>
+            Gets or sets the navigable commands.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Navigation.FragmentNavigationEventArgs">
+            <summary>
+            Provides data for fragment navigation events.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Navigation.FragmentNavigationEventArgs.Fragment">
+            <summary>
+            Gets the uniform resource identifier (URI) fragment.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Navigation.LinkCommands">
+            <summary>
+            The routed link commands.
+            This should only be used by implementors of ILink
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.Navigation.LinkCommands.CreateNavigateLinkCommandBinding(Gu.Wpf.ModernUI.INavigator)">
+            <summary>
+            Must be a nicer way to write this .
+            Maybe the worst example of partial application ever.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Navigation.LinkCommands.NavigateLink">
+            <summary>
+            Gets the navigate link routed command.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Navigation.NavigatingCancelEventArgs">
+            <summary>
+            Provides data for the <see cref="!:INavigationView.OnNavigatingFrom"/> method and the <see cref="E:Gu.Wpf.ModernUI.ModernFrame.Navigating"/> event.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Navigation.NavigationBaseEventArgs">
+            <summary>
+            Defines the base navigation event arguments.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.Navigation.NavigationBaseEventArgs.#ctor(Gu.Wpf.ModernUI.ModernFrame,System.Uri)">
+            <summary>
+            
+            </summary>
+            <param name="frame"></param>
+            <param name="source"></param>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Navigation.NavigationBaseEventArgs.Frame">
+            <summary>
+            Gets the frame that raised this event.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Navigation.NavigationBaseEventArgs.Source">
+            <summary>
+            Gets the source uri for the target being navigated to.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.Navigation.NavigatingCancelEventArgs.#ctor(Gu.Wpf.ModernUI.ModernFrame,System.Uri,System.Boolean,Gu.Wpf.ModernUI.Navigation.NavigationType)">
+            <summary>
+            
+            </summary>
+            <param name="frame"></param>
+            <param name="source"></param>
+            <param name="isParentFrameNavigating"></param>
+            <param name="navigationType"></param>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Navigation.NavigatingCancelEventArgs.IsParentFrameNavigating">
+            <summary>
+            Gets a value indicating whether the frame performing the navigation is a parent frame or the frame itself.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Navigation.NavigatingCancelEventArgs.NavigationType">
+            <summary>
+            Gets a value that indicates the type of navigation that is occurring.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Navigation.NavigatingCancelEventArgs.Cancel">
+            <summary>
+            Gets or sets a value indicating whether the event should be canceled.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Navigation.NavigationEventArgs">
+            <summary>
+            Provides data for frame navigation events.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.Navigation.NavigationEventArgs.#ctor(Gu.Wpf.ModernUI.ModernFrame,System.Uri,Gu.Wpf.ModernUI.Navigation.NavigationType,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="frame">The frame navigating</param>
+            <param name="source">The uri of being navigated to</param>
+            <param name="navigationType"></param>
+            <param name="content">The content of the target being navigated to.</param>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Navigation.NavigationEventArgs.NavigationType">
+            <summary>
+            Gets a value that indicates the type of navigation that is occurring.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Navigation.NavigationEventArgs.Content">
+            <summary>
+            Gets the content of the target being navigated to.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Navigation.NavigationEvents">
+            <summary>
+            Exposing navigation events. Watch out for memory leaks when subscribing.
+            </summary>
+        </member>
+        <member name="E:Gu.Wpf.ModernUI.Navigation.NavigationEvents.FragmentNavigation">
+            <summary>
+            Occurs when navigation to a content fragment begins.
+            </summary>
+        </member>
+        <member name="E:Gu.Wpf.ModernUI.Navigation.NavigationEvents.Navigating">
+            <summary>
+            Occurs when a new navigation is requested.
+            </summary>
+            <remarks>
+            The navigating event is also raised when a parent frame is navigating. This allows for cancelling parent navigation.
+            </remarks>
+        </member>
+        <member name="E:Gu.Wpf.ModernUI.Navigation.NavigationEvents.Navigated">
+            <summary>
+            Occurs when navigation to new content has completed.
+            </summary>
+        </member>
+        <member name="E:Gu.Wpf.ModernUI.Navigation.NavigationEvents.NavigationFailed">
+            <summary>
+            Occurs when navigation has failed.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Navigation.NavigationFailedEventArgs">
+            <summary>
+            Provides data for the <see cref="E:Gu.Wpf.ModernUI.ModernFrame.NavigationFailed"/> event.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.Navigation.NavigationFailedEventArgs.#ctor(Gu.Wpf.ModernUI.ModernFrame,System.Uri,System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="frame"></param>
+            <param name="source"></param>
+            <param name="error"></param>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Navigation.NavigationFailedEventArgs.Error">
+            <summary>
+            Gets the error from the failed navigation.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Navigation.NavigationFailedEventArgs.Handled">
+            <summary>
+            Gets or sets a value that indicates whether the failure event has been handled.
+            </summary>
+            <remarks>
+            When not handled, the error is displayed in the ModernFrame raising the NavigationFailed event.
+            </remarks>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Navigation.NavigationHelper">
+            <summary>
+            Provides helper function for navigation.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.Navigation.NavigationHelper.FrameSelf">
+            <summary>
+            Identifies the current frame.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.Navigation.NavigationHelper.FrameTop">
+            <summary>
+            Identifies the top frame.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.Navigation.NavigationHelper.FrameParent">
+            <summary>
+            Identifies the parent of the current frame.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.Navigation.NavigationHelper.FindFrame(System.String,System.Windows.FrameworkElement)">
+            <summary>
+            Finds the frame identified with given name in the specified context.
+            </summary>
+            <param name="name">The frame name.</param>
+            <param name="context">The framework element providing the context for finding a frame.</param>
+            <returns>The frame or null if the frame could not be found.</returns>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.Navigation.NavigationHelper.FindParentFrame(System.Windows.DependencyObject)">
+            <summary>
+            Find the parent frame of the object
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.Navigation.NavigationHelper.RemoveFragment(System.Uri)">
+            <summary>
+            Removes the fragment from specified uri and return it.
+            </summary>
+            <param name="uri">The uri</param>
+            <returns>The uri without the fragment, or the uri itself if no fragment is found</returns>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.Navigation.NavigationHelper.RemoveFragment(System.Uri,System.String@)">
+            <summary>
+            Removes the fragment from specified uri and returns the uri without the fragment and the fragment itself.
+            </summary>
+            <param name="uri">The uri.</param>
+            <param name="fragment">The fragment, null if no fragment found</param>
+            <returns>The uri without the fragment, or the uri itself if no fragment is found</returns>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.Navigation.NavigationHelper.ToUri(System.Object)">
+            <summary>
+            Tries to cast specified value to a uri. Either a uri or string input is accepted.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.Navigation.NavigationHelper.TryParseUriWithParameters(System.Object,System.Uri@,System.String@,System.String@)">
+            <summary>
+            Tries to parse a uri with parameters from given value.
+            </summary>
+            <param name="value">The value.</param>
+            <param name="uri">The URI.</param>
+            <param name="parameter">The parameter.</param>
+            <param name="targetName">Name of the target.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.Navigation.NavigationHelper.TryParseUriWithParameters(System.String,System.Uri@,System.String@,System.String@)">
+            <summary>
+            Tries to parse a uri with parameters from given string value.
+            </summary>
+            <param name="value">The value.</param>
+            <param name="uri">The URI.</param>
+            <param name="parameter">The parameter.</param>
+            <param name="targetName">Name of the target.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Navigation.NavigationType">
+            <summary>
+            Identifies the types of navigation that are supported.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.Navigation.NavigationType.New">
+            <summary>
+            Navigating to new content.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.Navigation.NavigationType.Back">
+            <summary>
+            Navigating back in the back navigation history.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.Navigation.NavigationType.Refresh">
+            <summary>
+            Reloading the current content.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.Navigation.NavigationType.Parent">
+            <summary>
+            Parent frame is navigating.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.FontSize">
+            <summary>
+            Identifies the available font size.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.FontSize.Large">
+            <summary>
+            Large fonts.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.FontSize.Small">
+            <summary>
+            Small fonts.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Internals.CommandBase">
+            <summary>
+            The base implementation of a command.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.Internals.CommandBase.OnCanExecuteChanged">
+            <summary>
+            Raises the <see cref="E:Gu.Wpf.ModernUI.Internals.CommandBase.CanExecuteChanged"/> event.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.Internals.CommandBase.CanExecute(System.Object)">
+            <summary>
+            Defines the method that determines whether the command can execute in its current state.
+            </summary>
+            <param name="parameter">Data used by the command.  If the command does not require data to be passed, this object can be set to null.</param>
+            <returns>
+            true if this command can be executed; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.Internals.CommandBase.Execute(System.Object)">
+            <summary>
+            Defines the method to be called when the command is invoked.
+            </summary>
+            <param name="parameter">Data used by the command.  If the command does not require data to be passed, this object can be set to null.</param>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.Internals.CommandBase.OnExecute(System.Object)">
+            <summary>
+            Executes the command.
+            </summary>
+            <param name="parameter">The parameter.</param>
+        </member>
+        <member name="E:Gu.Wpf.ModernUI.Internals.CommandBase.CanExecuteChanged">
+            <summary>
+            Occurs when changes occur that affect whether or not the command should execute.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.LinkGroup">
+            <summary>
+            Represents a named group of links.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.LinkGroup.DisplayName">
+            <summary>
+            Gets or sets the display name.
+            </summary>
+            <value>The display name.</value>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.LinkGroup.Links">
+            <summary>
+            Gets the collection of links
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.LinkGroup.SelectedLink">
+            <summary>
+            Gets or sets the source URI of the selected link.
+            </summary>
+            <value>The source URI of the selected link.</value>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.LinkGroup.Gu#Wpf#ModernUI#INavigator#SelectedLink">
+            <summary>
+            Explicit implementation here to only expose set to consumers of INavigator
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.LinkGroup.SelectedSource">
+            <summary>
+            Get or sets the Uri of the selected Link
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.LinkGroup.Gu#Wpf#ModernUI#INavigator#SelectedSource">
+            <summary>
+            Explicit implementation here to set current value
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.LinkGroup.LinkNavigator">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.LinkGroup.NavigationTarget">
+            <summary>
+            Get or sets the target frame
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.LinkGroup.CanNavigate">
+            <summary>
+            Gets if the current linknavigator can navigate to Source
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.LinkGroup.Gu#Wpf#ModernUI#ILink#CanNavigate">
+            <summary>
+            LinkCommands updates this
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.LinkGroup.IsNavigatedTo">
+            <summary>
+            Gets if the current navigationtarget Source == this.Source
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.LinkGroup.Gu#Wpf#ModernUI#ILink#IsNavigatedTo">
+            <summary>
+            LinkCommands updates this
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Annotations.CanBeNullAttribute">
+            <summary>
+            Indicates that the value of the marked element could be <c>null</c> sometimes,
+            so the check for <c>null</c> is necessary before its usage.
+            </summary>
+            <example><code>
+            [CanBeNull] public object Test() { return null; }
+            public void UseTest() {
+              var p = Test();
+              var s = p.ToString(); // Warning: Possible 'System.NullReferenceException'
+            }
+            </code></example>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Annotations.NotNullAttribute">
+            <summary>
+            Indicates that the value of the marked element could never be <c>null</c>.
+            </summary>
+            <example><code>
+            [NotNull] public object Foo() {
+              return null; // Warning: Possible 'null' assignment
+            }
+            </code></example>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Annotations.ItemNotNullAttribute">
+            <summary>
+            Indicates that collection or enumerable value does not contain null elements.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Annotations.ItemCanBeNullAttribute">
+            <summary>
+            Indicates that collection or enumerable value can contain null elements.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Annotations.StringFormatMethodAttribute">
+            <summary>
+            Indicates that the marked method builds string by format pattern and (optional) arguments.
+            Parameter, which contains format string, should be given in constructor. The format string
+            should be in <see cref="M:System.String.Format(System.IFormatProvider,System.String,System.Object[])"/>-like form.
+            </summary>
+            <example><code>
+            [StringFormatMethod("message")]
+            public void ShowError(string message, params object[] args) { /* do something */ }
+            public void Foo() {
+              ShowError("Failed: {0}"); // Warning: Non-existing argument in format string
+            }
+            </code></example>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.Annotations.StringFormatMethodAttribute.#ctor(System.String)">
+            <param name="formatParameterName">
+            Specifies which parameter of an annotated method should be treated as format-string
+            </param>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Annotations.ValueProviderAttribute">
+            <summary>
+            For a parameter that is expected to be one of the limited set of values.
+            Specify fields of which type should be used as values for this parameter.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Annotations.InvokerParameterNameAttribute">
+            <summary>
+            Indicates that the function argument should be string literal and match one
+            of the parameters of the caller function. For example, ReSharper annotates
+            the parameter of <see cref="T:System.ArgumentNullException"/>.
+            </summary>
+            <example><code>
+            public void Foo(string param) {
+              if (param == null)
+                throw new ArgumentNullException("par"); // Warning: Cannot resolve symbol
+            }
+            </code></example>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Annotations.NotifyPropertyChangedInvocatorAttribute">
+             <summary>
+             Indicates that the method is contained in a type that implements
+             <c>System.ComponentModel.INotifyPropertyChanged</c> interface and this method
+             is used to notify that some property value changed.
+             </summary>
+             <remarks>
+             The method should be non-static and conform to one of the supported signatures:
+             <list>
+             <item><c>NotifyChanged(string)</c></item>
+             <item><c>NotifyChanged(params string[])</c></item>
+             <item><c>NotifyChanged{T}(Expression{Func{T}})</c></item>
+             <item><c>NotifyChanged{T,U}(Expression{Func{T,U}})</c></item>
+             <item><c>SetProperty{T}(ref T, T, string)</c></item>
+             </list>
+             </remarks>
+             <example><code>
+             public class Foo : INotifyPropertyChanged {
+               public event PropertyChangedEventHandler PropertyChanged;
+               [NotifyPropertyChangedInvocator]
+               protected virtual void NotifyChanged(string propertyName) { ... }
+            
+               private string _name;
+               public string Name {
+                 get { return _name; }
+                 set { _name = value; NotifyChanged("LastName"); /* Warning */ }
+               }
+             }
+             </code>
+             Examples of generated notifications:
+             <list>
+             <item><c>NotifyChanged("Property")</c></item>
+             <item><c>NotifyChanged(() =&gt; Property)</c></item>
+             <item><c>NotifyChanged((VM x) =&gt; x.Property)</c></item>
+             <item><c>SetProperty(ref myField, value, "Property")</c></item>
+             </list>
+             </example>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Annotations.ContractAnnotationAttribute">
+            <summary>
+            Describes dependency between method input and output.
+            </summary>
+            <syntax>
+            <p>Function Definition Table syntax:</p>
+            <list>
+            <item>FDT      ::= FDTRow [;FDTRow]*</item>
+            <item>FDTRow   ::= Input =&gt; Output | Output &lt;= Input</item>
+            <item>Input    ::= ParameterName: Value [, Input]*</item>
+            <item>Output   ::= [ParameterName: Value]* {halt|stop|void|nothing|Value}</item>
+            <item>Value    ::= true | false | null | notnull | canbenull</item>
+            </list>
+            If method has single input parameter, it's name could be omitted.<br/>
+            Using <c>halt</c> (or <c>void</c>/<c>nothing</c>, which is the same)
+            for method output means that the methos doesn't return normally.<br/>
+            <c>canbenull</c> annotation is only applicable for output parameters.<br/>
+            You can use multiple <c>[ContractAnnotation]</c> for each FDT row,
+            or use single attribute with rows separated by semicolon.<br/>
+            </syntax>
+            <examples><list>
+            <item><code>
+            [ContractAnnotation("=> halt")]
+            public void TerminationMethod()
+            </code></item>
+            <item><code>
+            [ContractAnnotation("halt &lt;= condition: false")]
+            public void Assert(bool condition, string text) // regular assertion method
+            </code></item>
+            <item><code>
+            [ContractAnnotation("s:null => true")]
+            public bool IsNullOrEmpty(string s) // string.IsNullOrEmpty()
+            </code></item>
+            <item><code>
+            // A method that returns null if the parameter is null,
+            // and not null if the parameter is not null
+            [ContractAnnotation("null => null; notnull => notnull")]
+            public object Transform(object data) 
+            </code></item>
+            <item><code>
+            [ContractAnnotation("s:null=>false; =>true,result:notnull; =>false, result:null")]
+            public bool TryParse(string s, out Person result)
+            </code></item>
+            </list></examples>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Annotations.LocalizationRequiredAttribute">
+            <summary>
+            Indicates that marked element should be localized or not.
+            </summary>
+            <example><code>
+            [LocalizationRequiredAttribute(true)]
+            public class Foo {
+              private string str = "my string"; // Warning: Localizable string
+            }
+            </code></example>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Annotations.CannotApplyEqualityOperatorAttribute">
+            <summary>
+            Indicates that the value of the marked type (or its derivatives)
+            cannot be compared using '==' or '!=' operators and <c>Equals()</c>
+            should be used instead. However, using '==' or '!=' for comparison
+            with <c>null</c> is always permitted.
+            </summary>
+            <example><code>
+            [CannotApplyEqualityOperator]
+            class NoEquality { }
+            class UsesNoEquality {
+              public void Test() {
+                var ca1 = new NoEquality();
+                var ca2 = new NoEquality();
+                if (ca1 != null) { // OK
+                  bool condition = ca1 == ca2; // Warning
+                }
+              }
+            }
+            </code></example>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Annotations.BaseTypeRequiredAttribute">
+            <summary>
+            When applied to a target attribute, specifies a requirement for any type marked
+            with the target attribute to implement or inherit specific type or types.
+            </summary>
+            <example><code>
+            [BaseTypeRequired(typeof(IComponent)] // Specify requirement
+            public class ComponentAttribute : Attribute { }
+            [Component] // ComponentAttribute requires implementing IComponent interface
+            public class MyComponent : IComponent { }
+            </code></example>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Annotations.UsedImplicitlyAttribute">
+            <summary>
+            Indicates that the marked symbol is used implicitly (e.g. via reflection, in external library),
+            so this symbol will not be marked as unused (as well as by other usage inspections).
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Annotations.MeansImplicitUseAttribute">
+            <summary>
+            Should be used on attributes and causes ReSharper to not mark symbols marked with such attributes
+            as unused (as well as by other usage inspections)
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.Annotations.ImplicitUseKindFlags.Access">
+            <summary>Only entity marked with attribute considered used.</summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.Annotations.ImplicitUseKindFlags.Assign">
+            <summary>Indicates implicit assignment to a member.</summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.Annotations.ImplicitUseKindFlags.InstantiatedWithFixedConstructorSignature">
+            <summary>
+            Indicates implicit instantiation of a type with fixed constructor signature.
+            That means any unused constructor parameters won't be reported as such.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.Annotations.ImplicitUseKindFlags.InstantiatedNoFixedConstructorSignature">
+            <summary>Indicates implicit instantiation of a type.</summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Annotations.ImplicitUseTargetFlags">
+            <summary>
+            Specify what is considered used implicitly when marked
+            with <see cref="T:Gu.Wpf.ModernUI.Annotations.MeansImplicitUseAttribute"/> or <see cref="T:Gu.Wpf.ModernUI.Annotations.UsedImplicitlyAttribute"/>.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.Annotations.ImplicitUseTargetFlags.Members">
+            <summary>Members of entity marked with attribute are considered used.</summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.Annotations.ImplicitUseTargetFlags.WithMembers">
+            <summary>Entity marked with attribute and all its members considered used.</summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Annotations.PublicAPIAttribute">
+            <summary>
+            This attribute is intended to mark publicly available API
+            which should not be removed and so is treated as used.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Annotations.InstantHandleAttribute">
+            <summary>
+            Tells code analysis engine if the parameter is completely handled when the invoked method is on stack.
+            If the parameter is a delegate, indicates that delegate is executed while the method is executed.
+            If the parameter is an enumerable, indicates that it is enumerated while the method is executed.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Annotations.PureAttribute">
+            <summary>
+            Indicates that a method does not make any observable state changes.
+            The same as <c>System.Diagnostics.Contracts.PureAttribute</c>.
+            </summary>
+            <example><code>
+            [Pure] private int Multiply(int x, int y) { return x * y; }
+            public void Foo() {
+              const int a = 2, b = 2;
+              Multiply(a, b); // Waring: Return value of pure method is not used
+            }
+            </code></example>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Annotations.PathReferenceAttribute">
+            <summary>
+            Indicates that a parameter is a path to a file or a folder within a web project.
+            Path can be relative or absolute, starting from web root (~).
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Annotations.SourceTemplateAttribute">
+            <summary>
+            An extension method marked with this attribute is processed by ReSharper code completion
+            as a 'Source Template'. When extension method is completed over some expression, it's source code
+            is automatically expanded like a template at call site.
+            </summary>
+            <remarks>
+            Template method body can contain valid source code and/or special comments starting with '$'.
+            Text inside these comments is added as source code when the template is applied. Template parameters
+            can be used either as additional method parameters or as identifiers wrapped in two '$' signs.
+            Use the <see cref="T:Gu.Wpf.ModernUI.Annotations.MacroAttribute"/> attribute to specify macros for parameters.
+            </remarks>
+            <example>
+            In this example, the 'forEach' method is a source template available over all values
+            of enumerable types, producing ordinary C# 'foreach' statement and placing caret inside block:
+            <code>
+            [SourceTemplate]
+            public static void forEach&lt;T&gt;(this IEnumerable&lt;T&gt; xs) {
+              foreach (var x in xs) {
+                 //$ $END$
+              }
+            }
+            </code>
+            </example>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Annotations.MacroAttribute">
+            <summary>
+            Allows specifying a macro for a parameter of a <see cref="T:Gu.Wpf.ModernUI.Annotations.SourceTemplateAttribute">source template</see>.
+            </summary>
+            <remarks>
+            You can apply the attribute on the whole method or on any of its additional parameters. The macro expression
+            is defined in the <see cref="P:Gu.Wpf.ModernUI.Annotations.MacroAttribute.Expression"/> property. When applied on a method, the target
+            template parameter is defined in the <see cref="P:Gu.Wpf.ModernUI.Annotations.MacroAttribute.Target"/> property. To apply the macro silently
+            for the parameter, set the <see cref="P:Gu.Wpf.ModernUI.Annotations.MacroAttribute.Editable"/> property value = -1.
+            </remarks>
+            <example>
+            Applying the attribute on a source template method:
+            <code>
+            [SourceTemplate, Macro(Target = "item", Expression = "suggestVariableName()")]
+            public static void forEach&lt;T&gt;(this IEnumerable&lt;T&gt; collection) {
+              foreach (var item in collection) {
+                //$ $END$
+              }
+            }
+            </code>
+            Applying the attribute on a template method parameter:
+            <code>
+            [SourceTemplate]
+            public static void something(this Entity x, [Macro(Expression = "guid()", Editable = -1)] string newguid) {
+              /*$ var $x$Id = "$newguid$" + x.ToString();
+              x.DoSomething($x$Id); */
+            }
+            </code>
+            </example>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Annotations.MacroAttribute.Expression">
+            <summary>
+            Allows specifying a macro that will be executed for a <see cref="T:Gu.Wpf.ModernUI.Annotations.SourceTemplateAttribute">source template</see>
+            parameter when the template is expanded.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Annotations.MacroAttribute.Editable">
+            <summary>
+            Allows specifying which occurrence of the target parameter becomes editable when the template is deployed.
+            </summary>
+            <remarks>
+            If the target parameter is used several times in the template, only one occurrence becomes editable;
+            other occurrences are changed synchronously. To specify the zero-based index of the editable occurrence,
+            use values >= 0. To make the parameter non-editable when the template is expanded, use -1.
+            </remarks>>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Annotations.MacroAttribute.Target">
+            <summary>
+            Identifies the target parameter of a <see cref="T:Gu.Wpf.ModernUI.Annotations.SourceTemplateAttribute">source template</see> if the
+            <see cref="T:Gu.Wpf.ModernUI.Annotations.MacroAttribute"/> is applied on a template method.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Annotations.AspMvcActionAttribute">
+            <summary>
+            ASP.NET MVC attribute. If applied to a parameter, indicates that the parameter
+            is an MVC action. If applied to a method, the MVC action name is calculated
+            implicitly from the context. Use this attribute for custom wrappers similar to
+            <c>System.Web.Mvc.Html.ChildActionExtensions.RenderAction(HtmlHelper, String)</c>.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Annotations.AspMvcAreaAttribute">
+            <summary>
+            ASP.NET MVC attribute. Indicates that a parameter is an MVC area.
+            Use this attribute for custom wrappers similar to
+            <c>System.Web.Mvc.Html.ChildActionExtensions.RenderAction(HtmlHelper, String)</c>.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Annotations.AspMvcControllerAttribute">
+            <summary>
+            ASP.NET MVC attribute. If applied to a parameter, indicates that the parameter is
+            an MVC controller. If applied to a method, the MVC controller name is calculated
+            implicitly from the context. Use this attribute for custom wrappers similar to
+            <c>System.Web.Mvc.Html.ChildActionExtensions.RenderAction(HtmlHelper, String, String)</c>.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Annotations.AspMvcMasterAttribute">
+            <summary>
+            ASP.NET MVC attribute. Indicates that a parameter is an MVC Master. Use this attribute
+            for custom wrappers similar to <c>System.Web.Mvc.Controller.View(String, String)</c>.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Annotations.AspMvcModelTypeAttribute">
+            <summary>
+            ASP.NET MVC attribute. Indicates that a parameter is an MVC model type. Use this attribute
+            for custom wrappers similar to <c>System.Web.Mvc.Controller.View(String, Object)</c>.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Annotations.AspMvcPartialViewAttribute">
+            <summary>
+            ASP.NET MVC attribute. If applied to a parameter, indicates that the parameter is an MVC
+            partial view. If applied to a method, the MVC partial view name is calculated implicitly
+            from the context. Use this attribute for custom wrappers similar to
+            <c>System.Web.Mvc.Html.RenderPartialExtensions.RenderPartial(HtmlHelper, String)</c>.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Annotations.AspMvcSupressViewErrorAttribute">
+            <summary>
+            ASP.NET MVC attribute. Allows disabling inspections for MVC views within a class or a method.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Annotations.AspMvcDisplayTemplateAttribute">
+            <summary>
+            ASP.NET MVC attribute. Indicates that a parameter is an MVC display template.
+            Use this attribute for custom wrappers similar to 
+            <c>System.Web.Mvc.Html.DisplayExtensions.DisplayForModel(HtmlHelper, String)</c>.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Annotations.AspMvcEditorTemplateAttribute">
+            <summary>
+            ASP.NET MVC attribute. Indicates that a parameter is an MVC editor template.
+            Use this attribute for custom wrappers similar to
+            <c>System.Web.Mvc.Html.EditorExtensions.EditorForModel(HtmlHelper, String)</c>.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Annotations.AspMvcTemplateAttribute">
+            <summary>
+            ASP.NET MVC attribute. Indicates that a parameter is an MVC template.
+            Use this attribute for custom wrappers similar to
+            <c>System.ComponentModel.DataAnnotations.UIHintAttribute(System.String)</c>.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Annotations.AspMvcViewAttribute">
+            <summary>
+            ASP.NET MVC attribute. If applied to a parameter, indicates that the parameter
+            is an MVC view. If applied to a method, the MVC view name is calculated implicitly
+            from the context. Use this attribute for custom wrappers similar to
+            <c>System.Web.Mvc.Controller.View(Object)</c>.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Annotations.AspMvcActionSelectorAttribute">
+            <summary>
+            ASP.NET MVC attribute. When applied to a parameter of an attribute,
+            indicates that this parameter is an MVC action name.
+            </summary>
+            <example><code>
+            [ActionName("Foo")]
+            public ActionResult Login(string returnUrl) {
+              ViewBag.ReturnUrl = Url.Action("Foo"); // OK
+              return RedirectToAction("Bar"); // Error: Cannot resolve action
+            }
+            </code></example>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Annotations.RazorSectionAttribute">
+            <summary>
+            Razor attribute. Indicates that a parameter or a method is a Razor section.
+            Use this attribute for custom wrappers similar to 
+            <c>System.Web.WebPages.WebPageBase.RenderSection(String)</c>.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Annotations.CollectionAccessAttribute">
+            <summary>
+            Indicates how method invocation affects content of the collection.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.Annotations.CollectionAccessType.None">
+            <summary>Method does not use or modify content of the collection.</summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.Annotations.CollectionAccessType.Read">
+            <summary>Method only reads content of the collection but does not modify it.</summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.Annotations.CollectionAccessType.ModifyExistingContent">
+            <summary>Method can change content of the collection but does not add new elements.</summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.Annotations.CollectionAccessType.UpdatedContent">
+            <summary>Method can add new elements to the collection.</summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Annotations.AssertionMethodAttribute">
+            <summary>
+            Indicates that the marked method is assertion method, i.e. it halts control flow if
+            one of the conditions is satisfied. To set the condition, mark one of the parameters with 
+            <see cref="T:Gu.Wpf.ModernUI.Annotations.AssertionConditionAttribute"/> attribute.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Annotations.AssertionConditionAttribute">
+            <summary>
+            Indicates the condition parameter of the assertion method. The method itself should be
+            marked by <see cref="T:Gu.Wpf.ModernUI.Annotations.AssertionMethodAttribute"/> attribute. The mandatory argument of
+            the attribute is the assertion type.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Annotations.AssertionConditionType">
+            <summary>
+            Specifies assertion type. If the assertion method argument satisfies the condition,
+            then the execution continues. Otherwise, execution is assumed to be halted.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.Annotations.AssertionConditionType.IS_TRUE">
+            <summary>Marked parameter should be evaluated to true.</summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.Annotations.AssertionConditionType.IS_FALSE">
+            <summary>Marked parameter should be evaluated to false.</summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.Annotations.AssertionConditionType.IS_NULL">
+            <summary>Marked parameter should be evaluated to null value.</summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.Annotations.AssertionConditionType.IS_NOT_NULL">
+            <summary>Marked parameter should be evaluated to not null value.</summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Annotations.TerminatesProgramAttribute">
+            <summary>
+            Indicates that the marked method unconditionally terminates control flow execution.
+            For example, it could unconditionally throw exception.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Annotations.LinqTunnelAttribute">
+            <summary>
+            Indicates that method is pure LINQ method, with postponed enumeration (like Enumerable.Select,
+            .Where). This annotation allows inference of [InstantHandle] annotation for parameters
+            of delegate type by analyzing LINQ method chains.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Annotations.NoEnumerationAttribute">
+            <summary>
+            Indicates that IEnumerable, passed as parameter, is not enumerated.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Annotations.RegexPatternAttribute">
+            <summary>
+            Indicates that parameter is regular expression pattern.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Annotations.XamlItemsControlAttribute">
+            <summary>
+            XAML attribute. Indicates the type that has <c>ItemsSource</c> property and should be treated
+            as <c>ItemsControl</c>-derived type, to enable inner items <c>DataContext</c> type resolve.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Annotations.XamlItemBindingOfItemsControlAttribute">
+            <summary>
+            XAML attibute. Indicates the property of some <c>BindingBase</c>-derived type, that
+            is used to bind some item of <c>ItemsControl</c>-derived type. This annotation will
+            enable the <c>DataContext</c> type resolve for XAML bindings for such properties.
+            </summary>
+            <remarks>
+            Property should have the tree ancestor of the <c>ItemsControl</c> type or
+            marked with the <see cref="T:Gu.Wpf.ModernUI.Annotations.XamlItemsControlAttribute"/> attribute.
+            </remarks>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Annotations.NoReorder">
+            <summary>
+            Prevents the Member Reordering feature from tossing members of the marked class.
+            </summary>
+            <remarks>
+            The attribute must be mentioned in your member reordering patterns
+            </remarks>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Internals.RelayCommand">
+            <summary>
+            The command that relays its functionality by invoking delegates.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.Internals.RelayCommand.#ctor(System.Action{System.Object},System.Func{System.Object,System.Boolean})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Gu.Wpf.ModernUI.Internals.RelayCommand"/> class.
+            </summary>
+            <param name="execute">The execute.</param>
+            <param name="canExecute">The can execute.</param>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.Internals.RelayCommand.CanExecute(System.Object)">
+            <summary>
+            Defines the method that determines whether the command can execute in its current state.
+            </summary>
+            <param name="parameter">Data used by the command. If the command does not require data to be passed, this object can be set to null.</param>
+            <returns>
+            true if this command can be executed; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.Internals.RelayCommand.OnExecute(System.Object)">
+            <summary>
+            Executes the command.
+            </summary>
+            <param name="parameter">The parameter.</param>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.AppearanceManager">
+            <summary>
+            Manages the theme, font size and accent colors for a Modern UI application.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.AppearanceManager.KeyAccentColor">
+            <summary>
+            The resource key for the accent color.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.AppearanceManager.KeyAccent">
+            <summary>
+            The resource key for the accent brush.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.AppearanceManager.KeyDefaultFontSize">
+            <summary>
+            The resource key for the default font size.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.AppearanceManager.KeyFixedFontSize">
+            <summary>
+            The resource key for the fixed font size.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.AppearanceManager.DarkThemeSource">
+            <summary>
+            The location of the dark theme resource dictionary.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.AppearanceManager.LightThemeSource">
+            <summary>
+            The location of the light theme resource dictionary.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.AppearanceManager.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Gu.Wpf.ModernUI.AppearanceManager"/> class.
+            </summary>
+        </member>
+        <member name="E:Gu.Wpf.ModernUI.AppearanceManager.PropertyChanged">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.AppearanceManager.Current">
+            <summary>
+            Gets the current <see cref="T:Gu.Wpf.ModernUI.AppearanceManager"/> instance.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.AppearanceManager.DarkThemeCommand">
+            <summary>
+            The command that sets the dark theme.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.AppearanceManager.LightThemeCommand">
+            <summary>
+            The command that sets the light color theme.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.AppearanceManager.SetThemeCommand">
+            <summary>
+            The command that sets a custom theme.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.AppearanceManager.LargeFontSizeCommand">
+            <summary>
+            The command that sets the large font size.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.AppearanceManager.SmallFontSizeCommand">
+            <summary>
+            The command that sets the small font size.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.AppearanceManager.AccentColorCommand">
+            <summary>
+            The command that sets the accent color.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.AppearanceManager.ThemeSource">
+            <summary>
+            Gets or sets the current theme source.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.AppearanceManager.FontSize">
+            <summary>
+            Gets or sets the font size.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.AppearanceManager.AccentColor">
+            <summary>
+            Gets or sets the accent color.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.ProcessDpiAwareness">
+            <summary>
+            Identifies dots per inch (dpi) awareness values.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.ProcessDpiAwareness.DpiUnaware">
+            <summary>
+            Process is not DPI aware.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.ProcessDpiAwareness.SystemDpiAware">
+            <summary>
+            Process is system DPI aware (= WPF default).
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.ProcessDpiAwareness.PerMonitorDpiAware">
+            <summary>
+            Process is per monitor DPI aware (Win81+ only).
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Properties.Resources.Back">
+            <summary>
+              Looks up a localized string similar to back.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Properties.Resources.Cancel">
+            <summary>
+              Looks up a localized string similar to cancel.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Properties.Resources.Close">
+            <summary>
+              Looks up a localized string similar to close.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Properties.Resources.Maximize">
+            <summary>
+              Looks up a localized string similar to maximize.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Properties.Resources.Minimize">
+            <summary>
+              Looks up a localized string similar to minimize.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Properties.Resources.NavigateLink">
+            <summary>
+              Looks up a localized string similar to Navigate link.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Properties.Resources.NavigationFailed">
+            <summary>
+              Looks up a localized string similar to Navigation failed.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Properties.Resources.NavigationFailedFrameNotFound">
+            <summary>
+              Looks up a localized string similar to Unable to navigate to {0}, could not find a ModernFrame target &apos;{1}&apos;.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Properties.Resources.NavigationFailedSourceNotSpecified">
+            <summary>
+              Looks up a localized string similar to Unable to navigate to {0}, no source specified.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Properties.Resources.No">
+            <summary>
+              Looks up a localized string similar to no.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Properties.Resources.Ok">
+            <summary>
+              Looks up a localized string similar to ok.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Properties.Resources.Restore">
+            <summary>
+              Looks up a localized string similar to restore.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Properties.Resources.UIThreadRequired">
+            <summary>
+              Looks up a localized string similar to Operation requires the UI thread.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Properties.Resources.UnexpectedToken">
+            <summary>
+              Looks up a localized string similar to Unexpected token.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Properties.Resources.UnknownOS">
+            <summary>
+              Looks up a localized string similar to Unknown operating system.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Properties.Resources.UnknownTokenType">
+            <summary>
+              Looks up a localized string similar to Unknown token type.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Properties.Resources.Yes">
+            <summary>
+              Looks up a localized string similar to yes.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Win32.OSVersionHelper">
+            <summary>
+            .NET wrapper for Version Helper functions.
+            http://msdn.microsoft.com/library/windows/desktop/dn424972.aspx
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.Win32.OSVersionHelper.VerSetConditionMask(System.UInt64,System.UInt32,System.Byte)">
+            <summary>
+            <para>Wrapper for VerSetConditionMask function (
+            http://msdn.microsoft.com/library/windows/desktop/ms725493.aspx).
+            </para>
+            <para>
+            Sets the bits of a 64-bit value to indicate the comparison
+            operator to use for a specified operating system version
+            attribute. This method is used to build the dwlConditionMask
+            parameter of the <see cref="M:Gu.Wpf.ModernUI.Win32.OSVersionHelper.VerifyVersionInfo(Gu.Wpf.ModernUI.Win32.OSVersionHelper.OsVersionInfoEx@,System.UInt32,System.UInt64)"/> method.
+            </para>
+            </summary>
+            <param name="dwlConditionMask">
+            <para>A value to be passed as the dwlConditionMask parameter of
+            the <see cref="M:Gu.Wpf.ModernUI.Win32.OSVersionHelper.VerifyVersionInfo(Gu.Wpf.ModernUI.Win32.OSVersionHelper.OsVersionInfoEx@,System.UInt32,System.UInt64)"/> method. The function stores
+            the comparison information in the bits of this variable.
+            </para>
+            <para>
+            Before the first call to VerSetConditionMask, initialize this
+            variable to zero. For subsequent calls, pass in the variable used
+            in the previous call.
+            </para>
+            </param>
+            <param name="dwTypeBitMask">A mask that indicates the member of
+            the <see cref="T:Gu.Wpf.ModernUI.Win32.OSVersionHelper.OsVersionInfoEx"/> structure whose comparison
+            operator is being set.</param>
+            <param name="dwConditionMask">The operator to be used for the
+            comparison.</param>
+            <returns>Condition mask value.</returns>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.Win32.OSVersionHelper.VerifyVersionInfo(Gu.Wpf.ModernUI.Win32.OSVersionHelper.OsVersionInfoEx@,System.UInt32,System.UInt64)">
+            <summary>
+            <para>
+            Wrapper for VerifyVersionInfo function (
+            http://msdn.microsoft.com/library/windows/desktop/ms725492.aspx).
+            </para>
+            <para>
+            Compares a set of operating system version requirements to the
+            corresponding values for the currently running version of the
+            system.
+            </para>
+            </summary>
+            <param name="lpVersionInfo">A pointer to an
+            <see cref="T:Gu.Wpf.ModernUI.Win32.OSVersionHelper.OsVersionInfoEx"/> structure containing the operating
+            system version requirements to compare.</param>
+            <param name="dwTypeMask">A mask that indicates the members of the
+            <see cref="T:Gu.Wpf.ModernUI.Win32.OSVersionHelper.OsVersionInfoEx"/> structure to be tested.</param>
+            <param name="dwlConditionMask">The type of comparison to be used
+            for each lpVersionInfo member being compared. Can be constructed
+            with <see cref="M:Gu.Wpf.ModernUI.Win32.OSVersionHelper.VerSetConditionMask(System.UInt64,System.UInt32,System.Byte)"/> method.</param>
+            <returns>True if the current Windows OS satisfies the specified
+            requirements; otherwise, false.</returns>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.Win32.OSVersionHelper.#cctor">
+            <summary>
+            Initializes dictionary of operating systems.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.Win32.OSVersionHelper.IsWindowsVersionOrGreater(System.UInt32,System.UInt32,System.UInt16)">
+            <summary>
+            Indicates if the current OS version matches, or is greater than,
+            the provided version information. This method is useful in
+            confirming a version of Windows Server that doesn't share a
+            version number with a client release.
+            </summary>
+            <param name="majorVersion">The major OS version number.</param>
+            <param name="minorVersion">The minor OS version number.</param>
+            <param name="servicePackMajor">The major Service Pack version
+            number.</param>
+            <returns>True if the the running OS matches, or is greater
+            than, the specified version information; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.Win32.OSVersionHelper.IsWindowsVersionOrGreater(Gu.Wpf.ModernUI.Win32.OSVersionHelper.KnownOS)">
+            <summary>
+            Indicates if the running OS version matches, or is greater than,
+            the provided OS.
+            </summary>
+            <param name="os">OS to compare running OS to.</param>
+            <returns>True if the the running OS matches, or is greater
+            than, the specified OS; otherwise, false.</returns>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Win32.OSVersionHelper.IsWindowsXPOrGreater">
+            <summary>
+            Indicates if the current OS version matches, or is greater than,
+            the Windows XP version.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Win32.OSVersionHelper.IsWindowsXPSP1OrGreater">
+            <summary>
+            Indicates if the current OS version matches, or is greater than,
+            the Windows XP with Service Pack 1 (SP1) version.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Win32.OSVersionHelper.IsWindowsXPSP2OrGreater">
+            <summary>
+            Indicates if the current OS version matches, or is greater than,
+            the Windows XP with Service Pack 2 (SP2) version.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Win32.OSVersionHelper.IsWindowsXPSP3OrGreater">
+            <summary>
+            Indicates if the current OS version matches, or is greater than,
+            the Windows XP with Service Pack 3 (SP3) version.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Win32.OSVersionHelper.IsWindowsVistaOrGreater">
+            <summary>
+            Indicates if the current OS version matches, or is greater than,
+            the Windows Vista version.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Win32.OSVersionHelper.IsWindowsVistaSP1OrGreater">
+            <summary>
+            Indicates if the current OS version matches, or is greater than,
+            the Windows Vista with Service Pack 1 (SP1) version.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Win32.OSVersionHelper.IsWindowsVistaSP2OrGreater">
+            <summary>
+            Indicates if the current OS version matches, or is greater than,
+            the Windows Vista with Service Pack 2 (SP2) version.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Win32.OSVersionHelper.IsWindows7OrGreater">
+            <summary>
+            Indicates if the current OS version matches, or is greater than,
+            the Windows 7 version.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Win32.OSVersionHelper.IsWindows7SP1OrGreater">
+            <summary>
+            Indicates if the current OS version matches, or is greater than,
+            the Windows 7 with Service Pack 1 (SP1) version.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Win32.OSVersionHelper.IsWindows8OrGreater">
+            <summary>
+            Indicates if the current OS version matches, or is greater than,
+            the Windows 8 version.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Win32.OSVersionHelper.IsWindows8Point1OrGreater">
+            <summary>
+            Indicates if the current OS version matches, or is greater than,
+            the Windows 8.1 version.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Win32.OSVersionHelper.IsWindowsServer">
+            <summary>
+            Indicates if the current OS is a Windows Server release.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Win32.OSVersionHelper.KnownOS">
+            <summary>
+            Operating systems, the information which is stored within
+            the class <seealso cref="T:Gu.Wpf.ModernUI.Win32.OSVersionHelper"/>.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.Win32.OSVersionHelper.KnownOS.WindowsXP">
+            <summary>
+            Windows XP.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.Win32.OSVersionHelper.KnownOS.WindowsXPSP1">
+            <summary>
+            Windows XP SP1.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.Win32.OSVersionHelper.KnownOS.WindowsXPSP2">
+            <summary>
+            Windows XP SP2.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.Win32.OSVersionHelper.KnownOS.WindowsXPSP3">
+            <summary>
+            Windows XP SP3.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.Win32.OSVersionHelper.KnownOS.WindowsVista">
+            <summary>
+            Windows Vista.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.Win32.OSVersionHelper.KnownOS.WindowsVistaSP1">
+            <summary>
+            Windows Vista SP1.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.Win32.OSVersionHelper.KnownOS.WindowsVistaSP2">
+            <summary>
+            Windows Vista SP2.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.Win32.OSVersionHelper.KnownOS.Windows7">
+            <summary>
+            Windows 7.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.Win32.OSVersionHelper.KnownOS.Windows7SP1">
+            <summary>
+            Windows 7 SP1.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.Win32.OSVersionHelper.KnownOS.Windows8">
+            <summary>
+            Windows 8.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.Win32.OSVersionHelper.KnownOS.Windows8Point1">
+            <summary>
+            Windows 8.1.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Win32.OSVersionHelper.OsEntry">
+            <summary>
+            Information about operating system.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.Win32.OSVersionHelper.OsEntry.#ctor(System.UInt32,System.UInt32,System.UInt16)">
+            <summary>
+            Creates a new entry of operating system.
+            </summary>
+            <param name="majorVersion">The major version number of the
+            operating system.</param>
+            <param name="minorVersion">The minor version number of the
+            operating system.</param>
+            <param name="servicePackMajor">The major version number of the
+            latest Service Pack installed on the system. For example, for
+            Service Pack 3, the major version number is 3. If no Service
+            Pack has been installed, the value is zero.</param>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Win32.OSVersionHelper.OsEntry.MajorVersion">
+            <summary>
+            The major version number of the operating system.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Win32.OSVersionHelper.OsEntry.MinorVersion">
+            <summary>
+            The minor version number of the operating system.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Win32.OSVersionHelper.OsEntry.ServicePackMajor">
+            <summary>
+            The major version number of the latest Service Pack installed
+            on the system. For example, for Service Pack 3, the major
+            version number is 3. If no Service Pack has been installed,
+            the value is zero.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Win32.OSVersionHelper.OsEntry.MatchesOrGreater">
+            <summary>
+            Flag indicating if the running OS matches, or is greater
+            than, the OS specified with this entry. Should be initialized
+            with <see cref="M:Gu.Wpf.ModernUI.Win32.OSVersionHelper.VerifyVersionInfo(Gu.Wpf.ModernUI.Win32.OSVersionHelper.OsVersionInfoEx@,System.UInt32,System.UInt64)"/> method.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Win32.OSVersionHelper.OsVersionInfoEx">
+            <summary>
+            Wrapper for OSVERSIONINFOEX structure.
+            http://msdn.microsoft.com/library/windows/desktop/ms724833.aspx
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.Win32.OSVersionHelper.OsVersionInfoEx.OSVersionInfoSize">
+            <summary>
+            The size of this data structure, in bytes.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.Win32.OSVersionHelper.OsVersionInfoEx.MajorVersion">
+            <summary>
+            The major version number of the operating system.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.Win32.OSVersionHelper.OsVersionInfoEx.MinorVersion">
+            <summary>
+            The minor version number of the operating system.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.Win32.OSVersionHelper.OsVersionInfoEx.BuildNumber">
+            <summary>
+            The build number of the operating system.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.Win32.OSVersionHelper.OsVersionInfoEx.PlatformId">
+            <summary>
+            The operating system platform.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.Win32.OSVersionHelper.OsVersionInfoEx.CSDVersion">
+            <summary>
+            A null-terminated string, such as "Service Pack 3", that
+            indicates the latest Service Pack installed on the system. If
+            no Service Pack has been installed, the string is empty.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.Win32.OSVersionHelper.OsVersionInfoEx.ServicePackMajor">
+            <summary>
+            The major version number of the latest Service Pack installed
+            on the system. For example, for Service Pack 3, the major
+            version number is 3. If no Service Pack has been installed,
+            the value is zero.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.Win32.OSVersionHelper.OsVersionInfoEx.ServicePackMinor">
+            <summary>
+            The minor version number of the latest Service Pack installed
+            on the system. For example, for Service Pack 3, the minor
+            version number is 0.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.Win32.OSVersionHelper.OsVersionInfoEx.SuiteMask">
+            <summary>
+            A bit mask that identifies the product suites available on the
+            system, e.g., flags indicating if the operating system is
+            Datacenter Server or Windows XP Embedded.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.Win32.OSVersionHelper.OsVersionInfoEx.ProductType">
+            <summary>
+            Any additional information about the system, e.g., flags
+            indicating if the operating system is a domain controller,
+            a server or a workstation.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.Win32.OSVersionHelper.OsVersionInfoEx.Reserved">
+            <summary>
+            Reserved for future use.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.CommandDictionary">
+            <summary>
+            Represents a collection of commands keyed by a uri.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.DataGridComboBoxColumn">
+            <summary>
+            A DataGrid checkbox column using default Modern UI element styles.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.DataGridComboBoxColumn.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Gu.Wpf.ModernUI.DataGridComboBoxColumn"/> class.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.DataGridTextColumn">
+            <summary>
+            A DataGrid text column using default Modern UI element styles.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.DataGridTextColumn.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Gu.Wpf.ModernUI.DataGridTextColumn"/> class.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.DataGridCheckBoxColumn">
+            <summary>
+            A DataGrid checkbox column using default Modern UI element styles.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.DataGridCheckBoxColumn.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Gu.Wpf.ModernUI.DataGridCheckBoxColumn"/> class.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.DpiAwareWindow">
+            <summary>
+            A window instance that is capable of per-monitor DPI awareness when supported.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.DpiAwareWindow.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Gu.Wpf.ModernUI.DpiAwareWindow"/> class.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.DpiAwareWindow.OnClosed(System.EventArgs)">
+            <summary>
+            Raises the System.Windows.Window.Closed event.
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.DpiAwareWindow.RefreshMonitorDpi">
+            <summary>
+            Refreshes the current monitor DPI settings and update the window size and layout scale accordingly.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.DpiAwareWindow.OnDpiChanged(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:DpiChanged"/> event.
+            </summary>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="E:Gu.Wpf.ModernUI.DpiAwareWindow.DpiChanged">
+            <summary>
+            Occurs when the system or monitor DPI for this window has changed.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.DpiAwareWindow.DpiInformation">
+            <summary>
+            Gets the DPI information for this window instance.
+            </summary>
+            <remarks>
+            DPI information is available after a window handle has been created.
+            </remarks>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.DpiInformation">
+            <summary>
+            Provides DPI information for a window.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.DpiInformation.WpfDpiX">
+            <summary>
+            Gets the horizontal resolution of the WPF rendering DPI.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.DpiInformation.WpfDpiY">
+            <summary>
+            Gets the vertical resolution of the WPF rendering DPI.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.DpiInformation.MonitorDpiX">
+            <summary>
+            Gets the horizontal resolution of the current monitor DPI.
+            </summary>
+            <remarks>Null when the process is not per monitor DPI aware.</remarks>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.DpiInformation.MonitorDpiY">
+            <summary>
+            Gets the vertical resolution of the current monitor DPI.
+            </summary>
+            <remarks>Null when the process is not per monitor DPI aware.</remarks>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.DpiInformation.ScaleX">
+            <summary>
+            Gets the x-axis scale factor.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.DpiInformation.ScaleY">
+            <summary>
+            Gets the y-axis scale factor.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.ModernProgressRing">
+            <summary>
+            Represents a control that indicates that an operation is ongoing. 
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.ModernProgressRing.IsActiveProperty">
+            <summary>
+            Identifies the IsActive property.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.ModernProgressRing.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Gu.Wpf.ModernUI.ModernProgressRing"/> class.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.ModernProgressRing.OnApplyTemplate">
+            <summary>
+            When overridden in a derived class, is invoked whenever application code or internal processes call <see cref="M:System.Windows.FrameworkElement.ApplyTemplate" />.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.ModernProgressRing.IsActive">
+            <summary>
+            Gets or sets a value that indicates whether the <see cref="T:Gu.Wpf.ModernUI.ModernProgressRing"/> is showing progress.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Navigation.SourceEventArgs">
+            <summary>
+            Provides data for events related to uri sources.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.Navigation.SourceEventArgs.#ctor(System.Uri)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Gu.Wpf.ModernUI.Navigation.SourceEventArgs"/> class.
+            </summary>
+            <param name="source"></param>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.Navigation.SourceEventArgs.Source">
+            <summary>
+            Gets the source uri.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.ModernButton">
+            <summary>
+            Adds icon content to a standard button.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.ModernButton.EllipseDiameterProperty">
+            <summary>
+            Identifies the EllipseDiameter property.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.ModernButton.EllipseStrokeThicknessProperty">
+            <summary>
+            Identifies the EllipseStrokeThickness property.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.ModernButton.IconDataProperty">
+            <summary>
+            Identifies the IconData property.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.ModernButton.IconHeightProperty">
+            <summary>
+            Identifies the IconHeight property.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.ModernButton.IconWidthProperty">
+            <summary>
+            Identifies the IconWidth property.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.ModernButton.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Gu.Wpf.ModernUI.ModernButton"/> class.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.ModernButton.EllipseDiameter">
+            <summary>
+            Gets or sets the ellipse diameter.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.ModernButton.EllipseStrokeThickness">
+            <summary>
+            Gets or sets the ellipse stroke thickness.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.ModernButton.IconData">
+            <summary>
+            Gets or sets the icon path data.
+            </summary>
+            <value>
+            The icon path data.
+            </value>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.ModernButton.IconHeight">
+            <summary>
+            Gets or sets the icon height.
+            </summary>
+            <value>
+            The icon height.
+            </value>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.ModernButton.IconWidth">
+            <summary>
+            Gets or sets the icon width.
+            </summary>
+            <value>
+            The icon width.
+            </value>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.BBCodeBlock">
+            <summary>
+            A lighweight control for displaying small amounts of rich formatted BBCode content.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.BBCodeBlock.BBCodeProperty">
+            <summary>
+            Identifies the BBCode dependency property.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.BBCodeBlock.LinkNavigatorProperty">
+            <summary>
+            Identifies the LinkNavigator dependency property.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.BBCodeBlock.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Gu.Wpf.ModernUI.BBCodeBlock"/> class.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.BBCodeBlock.BBCode">
+            <summary>
+            Gets or sets the BB code.
+            </summary>
+            <value>The BB code.</value>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.BBCodeBlock.LinkNavigator">
+            <summary>
+            Gets or sets the link navigator.
+            </summary>
+            <value>The link navigator.</value>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.BBCode.BBCodeLexer">
+            <summary>
+            The BBCode lexer.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.BBCode.Lexer">
+            <summary>
+            Provides basic lexer functionality.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.BBCode.Lexer.TokenEnd">
+            <summary>
+            Defines the end-of-file token type.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.BBCode.Lexer.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Lexer"/> class.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.BBCode.Lexer.PushState(System.Int32)">
+            <summary>
+            Pushes a new state on the stac.
+            </summary>
+            <param name="state">The state.</param>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.BBCode.Lexer.PopState">
+            <summary>
+            Pops the state.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.BBCode.Lexer.LA(System.Int32)">
+            <summary>
+            Performs a look-ahead.
+            </summary>
+            <param name="count">The number of characters to look ahead.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.BBCode.Lexer.Mark">
+            <summary>
+            Marks the current position.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.BBCode.Lexer.GetMark">
+            <summary>
+            Gets the mark.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.BBCode.Lexer.Consume">
+            <summary>
+            Consumes the next character.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.BBCode.Lexer.IsInRange(System.Char,System.Char)">
+            <summary>
+            Determines whether the current character is in given range.
+            </summary>
+            <param name="first">The first.</param>
+            <param name="last">The last.</param>
+            <returns>
+            	<c>true</c> if the current character is in given range; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.BBCode.Lexer.IsInRange(System.Char[])">
+            <summary>
+            Determines whether the current character is in given range.
+            </summary>
+            <param name="value">The value.</param>
+            <returns>
+            	<c>true</c> if the current character is in given range; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.BBCode.Lexer.Match(System.Char)">
+            <summary>
+            Matches the specified character.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.BBCode.Lexer.Match(System.Char,System.Int32,System.Int32)">
+            <summary>
+            Matches the specified character.
+            </summary>
+            <param name="value">The value.</param>
+            <param name="minOccurs">The min occurs.</param>
+            <param name="maxOccurs">The max occurs.</param>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.BBCode.Lexer.Match(System.String)">
+            <summary>
+            Matches the specified string.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.BBCode.Lexer.MatchRange(System.Char[])">
+            <summary>
+            Matches the range.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.BBCode.Lexer.MatchRange(System.Char[],System.Int32,System.Int32)">
+            <summary>
+            Matches the range.
+            </summary>
+            <param name="value">The value.</param>
+            <param name="minOccurs">The min occurs.</param>
+            <param name="maxOccurs">The max occurs.</param>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.BBCode.Lexer.MatchRange(System.Char,System.Char)">
+            <summary>
+            Matches the range.
+            </summary>
+            <param name="first">The first.</param>
+            <param name="last">The last.</param>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.BBCode.Lexer.MatchRange(System.Char,System.Char,System.Int32,System.Int32)">
+            <summary>
+            Matches the range.
+            </summary>
+            <param name="first">The first.</param>
+            <param name="last">The last.</param>
+            <param name="minOccurs">The min occurs.</param>
+            <param name="maxOccurs">The max occurs.</param>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.BBCode.Lexer.NextToken">
+            <summary>
+            Gets the next token.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.BBCode.Lexer.DefaultState">
+            <summary>
+            Gets the default state of the lexer.
+            </summary>
+            <value>The state of the default.</value>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.BBCode.Lexer.State">
+            <summary>
+            Gets the current state of the lexer.
+            </summary>
+            <value>The state.</value>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.BBCode.BBCodeLexer.TokenStartTag">
+            <summary>
+            Start tag
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.BBCode.BBCodeLexer.TokenEndTag">
+            <summary>
+            End tag
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.BBCode.BBCodeLexer.TokenAttribute">
+            <summary>
+            Attribute
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.BBCode.BBCodeLexer.TokenText">
+            <summary>
+            Text
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.BBCode.BBCodeLexer.TokenLineBreak">
+            <summary>
+            Line break
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.BBCode.BBCodeLexer.StateNormal">
+            <summary>
+            Normal state
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.BBCode.BBCodeLexer.StateTag">
+            <summary>
+            Tag state
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.BBCode.BBCodeLexer.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BBCodeLexer"/> class.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.BBCode.BBCodeLexer.NextToken">
+            <summary>
+            Gets the next token.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.BBCode.BBCodeLexer.DefaultState">
+            <summary>
+            Gets the default state of the lexer.
+            </summary>
+            <value>The state of the default.</value>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.BBCode.BBCodeParser">
+            <summary>
+            Represents the BBCode parser.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.BBCode.Parser`1">
+            <summary>
+            Provides basic parse functionality.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.BBCode.Parser`1.#ctor(Gu.Wpf.ModernUI.BBCode.Lexer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Parser"/> class.
+            </summary>
+            <param name="lexer">The lexer.</param>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.BBCode.Parser`1.LA(System.Int32)">
+            <summary>
+            Performs a token look-ahead
+            </summary>
+            <param name="count">The count.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.BBCode.Parser`1.Consume">
+            <summary>
+            Consumes the next token.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.BBCode.Parser`1.IsInRange(System.Int32[])">
+            <summary>
+            Determines whether the current token is in specified range.
+            </summary>
+            <param name="tokenTypes">The token types.</param>
+            <returns>
+            	<c>true</c> if current token is in specified range; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.BBCode.Parser`1.Match(System.Int32)">
+            <summary>
+            Matches the specified token type.
+            </summary>
+            <param name="tokenType">Type of the token.</param>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.BBCode.Parser`1.MatchNot(System.Int32)">
+            <summary>
+            Does not matches the specified token type
+            </summary>
+            <param name="tokenType">Type of the token.</param>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.BBCode.Parser`1.MatchRange(System.Int32[],System.Int32,System.Int32)">
+            <summary>
+            Matches the range.
+            </summary>
+            <param name="tokenTypes">The token types.</param>
+            <param name="minOccurs">The min occurs.</param>
+            <param name="maxOccurs">The max occurs.</param>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.BBCode.Parser`1.Parse">
+            <summary>
+            Parses the text and returns an object of type TResult.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.BBCode.BBCodeParser.#ctor(System.String,System.Windows.FrameworkElement)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BBCodeParser"/> class.
+            </summary>
+            <param name="value">The value.</param>
+            <param name="source">The framework source element this parser operates in.</param>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.BBCode.BBCodeParser.Parse">
+            <summary>
+            Parses the text and returns a Span containing the parsed result.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.BBCode.BBCodeParser.Commands">
+            <summary>
+            Gets or sets the available navigable commands.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.BBCode.BBCodeParser.ParseContext.CreateRun(System.String)">
+            <summary>
+            Creates a run reflecting the current context settings.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.BBCode.CharBuffer">
+            <summary>
+            Represents a character buffer.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.BBCode.CharBuffer.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CharBuffer"/> class.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.BBCode.CharBuffer.LA(System.Int32)">
+            <summary>
+            Performs a look-ahead.
+            </summary>
+            <param name="count">The number of character to look ahead.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.BBCode.CharBuffer.Mark">
+            <summary>
+            Marks the current position.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.BBCode.CharBuffer.GetMark">
+            <summary>
+            Gets the mark.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.BBCode.CharBuffer.Consume">
+            <summary>
+            Consumes the next character.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.BBCode.ParseException">
+            <summary>
+            The exception for parse errors.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.BBCode.ParseException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Gu.Wpf.ModernUI.BBCode.ParseException"/> class.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.BBCode.ParseException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Gu.Wpf.ModernUI.BBCode.ParseException"/> class.
+            </summary>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.BBCode.ParseException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Gu.Wpf.ModernUI.BBCode.ParseException"/> class.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="innerException">The inner exception.</param>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.BBCode.Token">
+            <summary>
+            Represents a single token.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.BBCode.Token.End">
+            <summary>
+            Represents the token that marks the end of the input.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.BBCode.Token.#ctor(System.String,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Token"/> class.
+            </summary>
+            <param name="value">The value.</param>
+            <param name="tokenType">Type of the token.</param>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.BBCode.Token.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
+            </returns>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.BBCode.Token.Value">
+            <summary>
+            Gets the value.
+            </summary>
+            <value>The value.</value>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.BBCode.Token.TokenType">
+            <summary>
+            Gets the type of the token.
+            </summary>
+            <value>The type.</value>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.BBCode.TokenBuffer">
+            <summary>
+            Represents a token buffer.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.BBCode.TokenBuffer.#ctor(Gu.Wpf.ModernUI.BBCode.Lexer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:TokenBuffer"/> class.
+            </summary>
+            <param name="lexer">The lexer.</param>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.BBCode.TokenBuffer.LA(System.Int32)">
+            <summary>
+            Performs a look-ahead.
+            </summary>
+            <param name="count">The number of tokens to look ahead.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.BBCode.TokenBuffer.Consume">
+            <summary>
+            Consumes the next token.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.ModernDialog">
+            <summary>
+            Represents a Modern UI styled dialog window.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.ModernDialog.BackgroundContentProperty">
+            <summary>
+            Identifies the BackgroundContent dependency property.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.ModernDialog.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Gu.Wpf.ModernUI.ModernDialog"/> class.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.ModernDialog.ShowMessage(System.String,System.String,Gu.ModernUi.Interfaces.MessageBoxButtons,System.Windows.Window)">
+            <summary>
+            Displays a messagebox.
+            </summary>
+            <param name="text">The text.</param>
+            <param name="title">The title.</param>
+            <param name="button">The button.</param>
+            <param name="owner">The window owning the messagebox. The messagebox will be located at the center of the owner.</param>
+            <returns></returns>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.ModernDialog.BackgroundContent">
+            <summary>
+            Gets or sets the background content of this window instance.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.ModernMenu">
+            <summary>
+            Represents the menu in a Modern UI styled window.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.ModernMenu.SelectedLinkGroupProperty">
+            <summary>
+            Defines the SelectedLinkGroup dependency property.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.ModernMenu.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Gu.Wpf.ModernUI.ModernMenu"/> class.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.ModernMenu.SelectedLinkGroup">
+            <summary>
+            Gets the selected link groups.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.ModernMenu.Gu#Wpf#ModernUI#INavigator#SelectedLink">
+            <summary>
+            Explicit implementation here to only expose set to consumers of INavigator
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.ModernMenu.SelectedSource">
+            <summary>
+            Get or sets the Uri of the selected Link
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.ModernMenu.Gu#Wpf#ModernUI#INavigator#SelectedSource">
+            <summary>
+            Explicit implementation here to set current value
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.ModernMenu.NavigationTarget">
+            <summary>
+            Get or sets the target frame
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.ModernMenu.Links">
+            <summary>
+            Gets a collection with all nested sublinks
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.ModernMenu.LinkNavigator">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.ModernTab">
+            <summary>
+            Represents a control that contains multiple pages that share the same space on screen.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.ModernTab.Orientation">
+            <summary>
+            Gets or sets a value indicating how the tab should be rendered.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.ModernTab.Links">
+            <summary>
+            Gets the collection of links
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.ModernTab.SelectedLink">
+            <summary>
+            Gets or sets the source URI of the selected link.
+            </summary>
+            <value>The source URI of the selected link.</value>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.ModernTab.SelectedSource">
+            <summary>
+            Get or sets the Uri of the selected Link
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.ModernTab.LinkNavigator">
+            <summary>
+            Gets or sets the ILinkNavigator that manages navigation
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.ModernWindow">
+            <summary>
+            Represents a Modern UI styled window.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.ModernWindow.BackgroundContentProperty">
+            <summary>
+            Identifies the BackgroundContent dependency property.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.ModernWindow.MainMenuProperty">
+            <summary>
+            Identifies the MainMenu dependency property.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.ModernWindow.TitleLinksProperty">
+            <summary>
+            Identifies the TitleLinks dependency property.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.ModernWindow.LogoProperty">
+            <summary>
+            Identifies the LogoData dependency property.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.ModernWindow.ContentSourceProperty">
+            <summary>
+            Defines the ContentSource dependency property.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.ModernWindow.ContentLoaderProperty">
+            <summary>
+            Identifies the ContentLoader dependency property.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.ModernWindow.LinkNavigatorProperty">
+            <summary>
+            Identifies the LinkNavigator dependency property.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.ModernWindow.DialogHandlerProperty">
+            <summary>
+            Identifies the DialogHandler dependency property.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.ModernWindow.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Gu.Wpf.ModernUI.ModernWindow"/> class.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.ModernWindow.OnClosed(System.EventArgs)">
+            <summary>
+            Raises the System.Windows.Window.Closed event.
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.ModernWindow.OnApplyTemplate">
+            <summary>
+            When overridden in a derived class, is invoked whenever application code or internal processes call System.Windows.FrameworkElement.ApplyTemplate().
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.ModernWindow.BackgroundContent">
+            <summary>
+            Gets or sets the background content of this window instance.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.ModernWindow.MainMenu">
+            <summary>
+            Gets or sets the collection of link groups shown in the window's menu.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.ModernWindow.TitleLinks">
+            <summary>
+            Gets or sets the collection of links that appear in the menu in the title area of the window.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.ModernWindow.Home">
+            <summary>
+            Gets or sets the link to the home view
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.ModernWindow.Logo">
+            <summary>
+            Gets or sets the path data for the logo displayed in the title area of the window.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.ModernWindow.ContentSource">
+            <summary>
+            Gets or sets the source uri of the current content.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.ModernWindow.DialogHandler">
+            <summary>
+            The dialoghandler is used for displaying dialogs in banner style
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.ModernWindow.ContentLoader">
+            <summary>
+            Gets or sets the content loader.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.ModernWindow.LinkNavigator">
+            <summary>
+            Gets or sets the link navigator.
+            </summary>
+            <value>The link navigator.</value>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.RelativeAnimatingContentControl">
+            <summary>
+            The platform does not currently support relative sized translation values. 
+            This primitive control walks through visual state animation storyboards
+            and looks for identifying values to use as percentages.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.RelativeAnimatingContentControl.SimpleDoubleComparisonEpsilon">
+            <summary>
+            A simple Epsilon-style value used for trying to determine if a double
+            has an identifying value. 
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.RelativeAnimatingContentControl._knownWidth">
+            <summary>
+            The last known width of the control.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.RelativeAnimatingContentControl._knownHeight">
+            <summary>
+            The last known height of the control.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.RelativeAnimatingContentControl._specialAnimations">
+            <summary>
+            A set of custom animation adapters used to update the animation
+            storyboards when the size of the control changes.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.RelativeAnimatingContentControl.#ctor">
+            <summary>
+            Initializes a new instance of the RelativeAnimatingContentControl
+            type.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.RelativeAnimatingContentControl.OnSizeChanged(System.Object,System.Windows.SizeChangedEventArgs)">
+            <summary>
+            Handles the size changed event.
+            </summary>
+            <param name="sender">The source object.</param>
+            <param name="e">The event arguments.</param>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.RelativeAnimatingContentControl.UpdateAnyAnimationValues">
+            <summary>
+            Walks through the known storyboards in the control's template that
+            may contain identifying values, storing them for future
+            use and updates.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.RelativeAnimatingContentControl.UpdateKnownAnimations">
+            <summary>
+            Walks through all special animations, updating based on the current
+            size of the control.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.RelativeAnimatingContentControl.ProcessDoubleAnimationWithKeys(System.Windows.Media.Animation.DoubleAnimationUsingKeyFrames)">
+            <summary>
+            Processes a double animation with keyframes, looking for known 
+            special values to store with an adapter.
+            </summary>
+            <param name="da">The double animation using key frames instance.</param>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.RelativeAnimatingContentControl.ProcessDoubleAnimation(System.Windows.Media.Animation.DoubleAnimation)">
+            <summary>
+            Processes a double animation looking for special values.
+            </summary>
+            <param name="da">The double animation instance.</param>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.RelativeAnimatingContentControl.DoubleAnimationDimension">
+            <summary>
+            A selection of dimensions of interest for updating an animation.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.RelativeAnimatingContentControl.DoubleAnimationDimension.Width">
+            <summary>
+            The width (horizontal) dimension.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.RelativeAnimatingContentControl.DoubleAnimationDimension.Height">
+            <summary>
+            The height (vertical) dimension.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.RelativeAnimatingContentControl.AnimationValueAdapter">
+            <summary>
+            A simple class designed to store information about a specific 
+            animation instance and its properties. Able to update the values at
+            runtime.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.RelativeAnimatingContentControl.AnimationValueAdapter.#ctor(Gu.Wpf.ModernUI.RelativeAnimatingContentControl.DoubleAnimationDimension)">
+            <summary>
+            Initializes a new instance of the AnimationValueAdapter type.
+            </summary>
+            <param name="dimension">The dimension of interest for updates.</param>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.RelativeAnimatingContentControl.AnimationValueAdapter.UpdateWithNewDimension(System.Double,System.Double)">
+            <summary>
+            Updates the original instance based on new dimension information
+            from the control. Takes both and allows the subclass to make the
+            decision on which ratio, values, and dimension to use.
+            </summary>
+            <param name="width">The width of the control.</param>
+            <param name="height">The height of the control.</param>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.RelativeAnimatingContentControl.AnimationValueAdapter.OriginalValue">
+            <summary>
+            Gets or sets the original double value.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.RelativeAnimatingContentControl.AnimationValueAdapter.Dimension">
+            <summary>
+            Gets the dimension of interest for the control.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.RelativeAnimatingContentControl.GeneralAnimationValueAdapter`1.GetValue">
+            <summary>
+            Gets the value of the underlying property of interest.
+            </summary>
+            <returns>Returns the value of the property.</returns>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.RelativeAnimatingContentControl.GeneralAnimationValueAdapter`1.SetValue(System.Double)">
+            <summary>
+            Sets the value for the underlying property of interest.
+            </summary>
+            <param name="newValue">The new value for the property.</param>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.RelativeAnimatingContentControl.GeneralAnimationValueAdapter`1._ratio">
+            <summary>
+            The ratio based on the original identifying value, used for computing
+            the updated animation property of interest when the size of the
+            control changes.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.RelativeAnimatingContentControl.GeneralAnimationValueAdapter`1.#ctor(Gu.Wpf.ModernUI.RelativeAnimatingContentControl.DoubleAnimationDimension,`0)">
+            <summary>
+            Initializes a new instance of the GeneralAnimationValueAdapter
+            type.
+            </summary>
+            <param name="d">The dimension of interest.</param>
+            <param name="instance">The animation type instance.</param>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.RelativeAnimatingContentControl.GeneralAnimationValueAdapter`1.StripIdentifyingValueOff(System.Double)">
+            <summary>
+            Approximately removes the identifying value from a value.
+            </summary>
+            <param name="number">The initial number.</param>
+            <returns>Returns a double with an adjustment for the identifying
+            value portion of the number.</returns>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.RelativeAnimatingContentControl.GeneralAnimationValueAdapter`1.GetDimensionFromIdentifyingValue(System.Double)">
+            <summary>
+            Retrieves the dimension, if any, from the number. If the number
+            does not have an identifying value, null is returned.
+            </summary>
+            <param name="number">The double value.</param>
+            <returns>Returns a double animation dimension if the number was
+            contained an identifying value; otherwise, returns null.</returns>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.RelativeAnimatingContentControl.GeneralAnimationValueAdapter`1.UpdateWithNewDimension(System.Double,System.Double)">
+            <summary>
+            Updates the animation instance based on the dimensions of the
+            control.
+            </summary>
+            <param name="width">The width of the control.</param>
+            <param name="height">The height of the control.</param>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.RelativeAnimatingContentControl.GeneralAnimationValueAdapter`1.UpdateValue(System.Double)">
+            <summary>
+            Updates the value of the property.
+            </summary>
+            <param name="sizeToUse">The size of interest to use with a ratio
+            computation.</param>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.RelativeAnimatingContentControl.GeneralAnimationValueAdapter`1.Instance">
+            <summary>
+            Stores the animation instance.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.RelativeAnimatingContentControl.GeneralAnimationValueAdapter`1.InitialValue">
+            <summary>
+            Gets the initial value (minus the identifying value portion) that the
+            designer stored within the visual state animation property.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.RelativeAnimatingContentControl.DoubleAnimationToAdapter">
+            <summary>
+            Adapter for DoubleAnimation's To property.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.RelativeAnimatingContentControl.DoubleAnimationToAdapter.GetValue">
+            <summary>
+            Gets the value of the underlying property of interest.
+            </summary>
+            <returns>Returns the value of the property.</returns>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.RelativeAnimatingContentControl.DoubleAnimationToAdapter.SetValue(System.Double)">
+            <summary>
+            Sets the value for the underlying property of interest.
+            </summary>
+            <param name="newValue">The new value for the property.</param>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.RelativeAnimatingContentControl.DoubleAnimationToAdapter.#ctor(Gu.Wpf.ModernUI.RelativeAnimatingContentControl.DoubleAnimationDimension,System.Windows.Media.Animation.DoubleAnimation)">
+            <summary>
+            Initializes a new instance of the DoubleAnimationToAdapter type.
+            </summary>
+            <param name="dimension">The dimension of interest.</param>
+            <param name="instance">The instance of the animation type.</param>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.RelativeAnimatingContentControl.DoubleAnimationFromAdapter">
+            <summary>
+            Adapter for DoubleAnimation's From property.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.RelativeAnimatingContentControl.DoubleAnimationFromAdapter.GetValue">
+            <summary>
+            Gets the value of the underlying property of interest.
+            </summary>
+            <returns>Returns the value of the property.</returns>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.RelativeAnimatingContentControl.DoubleAnimationFromAdapter.SetValue(System.Double)">
+            <summary>
+            Sets the value for the underlying property of interest.
+            </summary>
+            <param name="newValue">The new value for the property.</param>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.RelativeAnimatingContentControl.DoubleAnimationFromAdapter.#ctor(Gu.Wpf.ModernUI.RelativeAnimatingContentControl.DoubleAnimationDimension,System.Windows.Media.Animation.DoubleAnimation)">
+            <summary>
+            Initializes a new instance of the DoubleAnimationFromAdapter 
+            type.
+            </summary>
+            <param name="dimension">The dimension of interest.</param>
+            <param name="instance">The instance of the animation type.</param>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.RelativeAnimatingContentControl.DoubleAnimationFrameAdapter">
+            <summary>
+            Adapter for double key frames.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.RelativeAnimatingContentControl.DoubleAnimationFrameAdapter.GetValue">
+            <summary>
+            Gets the value of the underlying property of interest.
+            </summary>
+            <returns>Returns the value of the property.</returns>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.RelativeAnimatingContentControl.DoubleAnimationFrameAdapter.SetValue(System.Double)">
+            <summary>
+            Sets the value for the underlying property of interest.
+            </summary>
+            <param name="newValue">The new value for the property.</param>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.RelativeAnimatingContentControl.DoubleAnimationFrameAdapter.#ctor(Gu.Wpf.ModernUI.RelativeAnimatingContentControl.DoubleAnimationDimension,System.Windows.Media.Animation.DoubleKeyFrame)">
+            <summary>
+            Initializes a new instance of the DoubleAnimationFrameAdapter
+            type.
+            </summary>
+            <param name="dimension">The dimension of interest.</param>
+            <param name="frame">The instance of the animation type.</param>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.TransitioningContentControl">
+            <summary>
+            Represents a control with a single piece of content and when that content 
+            changes performs a transition animation. 
+            </summary>
+            <QualityBand>Experimental</QualityBand>
+            <remarks>The API for this control will change considerably in the future.</remarks>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.TransitioningContentControl.PresentationGroup">
+            <summary>
+            The name of the group that holds the presentation states.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.TransitioningContentControl.NormalState">
+            <summary>
+            The name of the state that represents a normal situation where no
+            transition is currently being used.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.TransitioningContentControl.DefaultTransitionState">
+            <summary>
+            The name of the state that represents the default transition.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.TransitioningContentControl.PreviousContentPresentationSitePartName">
+            <summary>
+            The name of the control that will display the previous content.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.TransitioningContentControl.CurrentContentPresentationSitePartName">
+            <summary>
+            The name of the control that will display the current content.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.TransitioningContentControl._allowIsTransitioningWrite">
+            <summary>
+            Indicates whether the control allows writing IsTransitioning.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.TransitioningContentControl.IsTransitioningProperty">
+            <summary>
+            Identifies the IsTransitioning dependency property.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.TransitioningContentControl.OnIsTransitioningPropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            IsTransitioningProperty property changed handler.
+            </summary>
+            <param name="d">TransitioningContentControl that changed its IsTransitioning.</param>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.TransitioningContentControl._currentTransition">
+            <summary>
+            The storyboard that is used to transition old and new content.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.TransitioningContentControl.TransitionProperty">
+            <summary>
+            Identifies the Transition dependency property.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.TransitioningContentControl.OnTransitionPropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            TransitionProperty property changed handler.
+            </summary>
+            <param name="d">TransitioningContentControl that changed its Transition.</param>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.TransitioningContentControl.RestartTransitionOnContentChangeProperty">
+            <summary>
+            Identifies the RestartTransitionOnContentChange dependency property.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.TransitioningContentControl.OnRestartTransitionOnContentChangePropertyChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <summary>
+            RestartTransitionOnContentChangeProperty property changed handler.
+            </summary>
+            <param name="d">TransitioningContentControl that changed its RestartTransitionOnContentChange.</param>
+            <param name="e">Event arguments.</param>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.TransitioningContentControl.OnRestartTransitionOnContentChangeChanged(System.Boolean,System.Boolean)">
+            <summary>
+            Called when the RestartTransitionOnContentChangeProperty changes.
+            </summary>
+            <param name="oldValue">The old value of RestartTransitionOnContentChange.</param>
+            <param name="newValue">The new value of RestartTransitionOnContentChange.</param>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.TransitioningContentControl.#cctor">
+            <summary>
+            Static constructor
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.TransitioningContentControl.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Gu.Wpf.ModernUI.TransitioningContentControl"/> class.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.TransitioningContentControl.OnApplyTemplate">
+            <summary>
+            Builds the visual tree for the TransitioningContentControl control 
+            when a new template is applied.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.TransitioningContentControl.OnContentChanged(System.Object,System.Object)">
+            <summary>
+            Called when the value of the <see cref="P:System.Windows.Controls.ContentControl.Content"/> property changes.
+            </summary>
+            <param name="oldContent">The old value of the <see cref="P:System.Windows.Controls.ContentControl.Content"/> property.</param>
+            <param name="newContent">The new value of the <see cref="P:System.Windows.Controls.ContentControl.Content"/> property.</param>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.TransitioningContentControl.StartTransition(System.Object,System.Object)">
+            <summary>
+            Starts the transition.
+            </summary>
+            <param name="oldContent">The old content.</param>
+            <param name="newContent">The new content.</param>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.TransitioningContentControl.OnTransitionCompleted(System.Object,System.EventArgs)">
+            <summary>
+            Handles the Completed event of the transition storyboard.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.TransitioningContentControl.AbortTransition">
+            <summary>
+            Aborts the transition and releases the previous content.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.TransitioningContentControl.GetStoryboard(System.String)">
+            <summary>
+            Attempts to find a storyboard that matches the newTransition name.
+            </summary>
+            <param name="newTransition">The new transition.</param>
+            <returns>A storyboard or null, if no storyboard was found.</returns>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.TransitioningContentControl.CurrentContentPresentationSite">
+            <summary>
+            Gets or sets the current content presentation site.
+            </summary>
+            <value>The current content presentation site.</value>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.TransitioningContentControl.PreviousContentPresentationSite">
+            <summary>
+            Gets or sets the previous content presentation site.
+            </summary>
+            <value>The previous content presentation site.</value>
+        </member>
+        <member name="E:Gu.Wpf.ModernUI.TransitioningContentControl.IsTransitioningChanged">
+            <summary>
+            Occurs when the IsTransitioning value has changed.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.TransitioningContentControl.IsTransitioning">
+            <summary>
+            Gets a value indicating whether this instance is currently performing
+            a transition.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.TransitioningContentControl.CurrentTransition">
+            <summary>
+            Gets or sets the storyboard that is used to transition old and new content.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.TransitioningContentControl.Transition">
+            <summary>
+            Gets or sets the name of the transition to use. These correspond
+            directly to the VisualStates inside the PresentationStates group.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.TransitioningContentControl.RestartTransitionOnContentChange">
+            <summary>
+            Gets or sets a value indicating whether the current transition
+            will be aborted when setting new content during a transition.
+            </summary>
+        </member>
+        <member name="E:Gu.Wpf.ModernUI.TransitioningContentControl.TransitionCompleted">
+            <summary>
+            Occurs when the current transition has completed.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.BooleanToFontWeightConverter">
+            <summary>
+            Converts a boolean value to a font weight (false: normal, true: bold)
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.BooleanToFontWeightConverter.WhenTrue">
+            <summary>
+            Gets or sets the value to be returned when the converted value is true
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.BooleanToFontWeightConverter.WhenFalse">
+            <summary>
+            Gets or sets the value to be returned when the converted value is false
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.BooleanToFontWeightConverter.WhenNull">
+            <summary>
+            Gets or sets the value to be returned when the converted value is null
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.BooleanToVisibilityConverter">
+            <summary>
+            Converts boolean to visibility values.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.BooleanToVisibilityConverter.WhenTrue">
+            <summary>
+            Gets or sets the value to be returned when the converted value is true
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.BooleanToVisibilityConverter.WhenFalse">
+            <summary>
+            Gets or sets the value to be returned when the converted value is false
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.BooleanToVisibilityConverter.WhenNull">
+            <summary>
+            Gets or sets the value to be returned when the converted value is null
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.NullOrEmptyStringToVisibilityConverter">
+            <summary>
+            Converts a null or empty string value to Visibility.Visible and any other value to Visibility.Collapsed
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.NullOrEmptyStringToVisibilityConverter.#ctor">
+            <summary>
+            Exposing explicit 
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.NullToVisibilityConverter">
+            <summary>
+            Converts a null value to Visibility.Visible and any other value to Visibility.Collapsed
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.ToLowerConverter">
+            <summary>
+            Converts string values to lower case.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.ToUpperConverter">
+            <summary>
+            Converts string values to upper case.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.DefaultContentLoader">
+            <summary>
+            Loads XAML files using Application.LoadComponent.
+            </summary>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.IContentLoader">
+            <summary>
+            The contract for loading content.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.IContentLoader.LoadContentAsync(System.Uri,System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously loads content from specified uri.
+            </summary>
+            <param name="uri">The content uri.</param>
+            <param name="cancellationToken">The token used to cancel the load content task.</param>
+            <returns>The loaded content.</returns>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.DefaultContentLoader.LoadContentAsync(System.Uri,System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously loads content from specified uri.
+            </summary>
+            <param name="uri">The content uri.</param>
+            <param name="cancellationToken">The token used to cancel the load content task.</param>
+            <returns>The loaded content.</returns>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.DefaultContentLoader.LoadContent(System.Uri)">
+            <summary>
+            Loads the content from specified uri.
+            </summary>
+            <param name="uri">The content uri</param>
+            <returns>The loaded content.</returns>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.INavigationView">
+            <summary>
+            Defines the optional contract for content loaded in a ModernFrame.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.INavigationView.OnFragmentNavigation(Gu.Wpf.ModernUI.Navigation.FragmentNavigationEventArgs)">
+            <summary>
+            Called when navigation to a content fragment begins.
+            </summary>
+            <param name="e">An object that contains the navigation data.</param>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.INavigationView.OnNavigatedFrom(Gu.Wpf.ModernUI.Navigation.NavigationEventArgs)">
+            <summary>
+            Called when this instance is no longer the active content in a frame.
+            </summary>
+            <param name="e">An object that contains the navigation data.</param>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.INavigationView.OnNavigatedTo(Gu.Wpf.ModernUI.Navigation.NavigationEventArgs)">
+            <summary>
+            Called when a this instance becomes the active content in a frame.
+            </summary>
+            <param name="e">An object that contains the navigation data.</param>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.Internals.VisualTreeHelperEx">
+            <summary>
+            Provides addition visual tree helper methods.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.Internals.VisualTreeHelperEx.TryGetVisualStateGroup(System.Windows.DependencyObject,System.String)">
+            <summary>
+            Gets specified visual state group.
+            </summary>
+            <param name="dependencyObject">The dependency object.</param>
+            <param name="groupName">Name of the group.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.Internals.VisualTreeHelperEx.GetImplementationRoot(System.Windows.DependencyObject)">
+            <summary>
+            Gets the implementation root.
+            </summary>
+            <param name="dependencyObject">The dependency object.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.Internals.VisualTreeHelperEx.Ancestors(System.Windows.DependencyObject)">
+            <summary>
+            Returns a collection of the visual ancestor elements of specified dependency object.
+            </summary>
+            <param name="dependencyObject">The dependency object.</param>
+            <returns>
+            A collection that contains the ancestors elements.
+            </returns>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.Internals.VisualTreeHelperEx.AncestorsAndSelf(System.Windows.DependencyObject)">
+            <summary>
+            Returns a collection of visual elements that contain specified object, and the ancestors of specified object.
+            </summary>
+            <param name="dependencyObject">The dependency object.</param>
+            <returns>
+            A collection that contains the ancestors elements and the object itself.
+            </returns>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.Internals.VisualTreeHelperEx.GetParent(System.Windows.DependencyObject)">
+            <summary>
+            Gets the parent for specified dependency object.
+            </summary>
+            <param name="dependencyObject">The dependency object</param>
+            <returns>The parent object or null if there is no parent.</returns>
+        </member>
+        <member name="T:Gu.Wpf.ModernUI.ModernFrame">
+            <summary>
+            A simple content frame implementation with navigation support.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.ModernFrame.KeepAliveProperty">
+            <summary>
+            Identifies the KeepAlive attached dependency property.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.ModernFrame.KeepContentAliveProperty">
+            <summary>
+            Identifies the KeepContentAlive dependency property.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.ModernFrame.ContentLoaderProperty">
+            <summary>
+            Identifies the ContentLoader dependency property.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.ModernFrame.IsLoadingContentProperty">
+            <summary>
+            Identifies the IsLoadingContent dependency property.
+            </summary>
+        </member>
+        <member name="F:Gu.Wpf.ModernUI.ModernFrame.CurrentSourceProperty">
+            <summary>
+            Identifies the ContentSource dependency property.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.ModernFrame.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Gu.Wpf.ModernUI.ModernFrame"/> class.
+            </summary>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.ModernFrame.OnCurrentSourceChanged(System.Uri,System.Uri)">
+            <summary>
+            
+            </summary>
+            <param name="oldValue"></param>
+            <param name="newValue"></param>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.ModernFrame.CanNavigate(System.Uri,System.Uri,Gu.Wpf.ModernUI.Navigation.NavigationType)">
+            <summary>
+            
+            </summary>
+            <param name="oldValue"></param>
+            <param name="newValue"></param>
+            <param name="navigationType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.ModernFrame.Navigate(System.Uri,System.Uri,Gu.Wpf.ModernUI.Navigation.NavigationType)">
+            <summary>
+            
+            </summary>
+            <param name="oldValue"></param>
+            <param name="newValue"></param>
+            <param name="navigationType"></param>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.ModernFrame.OnVisualParentChanged(System.Windows.DependencyObject)">
+            <summary>
+            
+            </summary>
+            <param name="oldParent"></param>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.ModernFrame.HandleRoutedEvent(System.Windows.Input.CanExecuteRoutedEventArgs)">
+            <summary>
+            Determines whether the routed event args should be handled.
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+            <remarks>This method prevents parent frames from handling routed commands.</remarks>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.ModernFrame.ShouldKeepContentAlive(System.Object)">
+            <summary>
+            Determines whether the specified content should be kept alive.
+            </summary>
+            <param name="content"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.ModernFrame.GetKeepAlive(System.Windows.DependencyObject)">
+            <summary>
+            Gets a value indicating whether to keep specified object alive in a ModernFrame instance.
+            </summary>
+            <param name="o">The target dependency object.</param>
+            <returns>Whether to keep the object alive. Null to leave the decision to the ModernFrame.</returns>
+        </member>
+        <member name="M:Gu.Wpf.ModernUI.ModernFrame.SetKeepAlive(System.Windows.DependencyObject,System.Nullable{System.Boolean})">
+            <summary>
+            Sets a value indicating whether to keep specified object alive in a ModernFrame instance.
+            </summary>
+            <param name="o">The target dependency object.</param>
+            <param name="value">Whether to keep the object alive. Null to leave the decision to the ModernFrame.</param>
+        </member>
+        <member name="E:Gu.Wpf.ModernUI.ModernFrame.FragmentNavigation">
+            <summary>
+            Occurs when navigation to a content fragment begins.
+            </summary>
+        </member>
+        <member name="E:Gu.Wpf.ModernUI.ModernFrame.Navigating">
+            <summary>
+            Occurs when a new navigation is requested.
+            </summary>
+            <remarks>
+            The navigating event is also raised when a parent frame is navigating. This allows for cancelling parent navigation.
+            </remarks>
+        </member>
+        <member name="E:Gu.Wpf.ModernUI.ModernFrame.Navigated">
+            <summary>
+            Occurs when navigation to new content has completed.
+            </summary>
+        </member>
+        <member name="E:Gu.Wpf.ModernUI.ModernFrame.NavigationFailed">
+            <summary>
+            Occurs when navigation has failed.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.ModernFrame.KeepContentAlive">
+            <summary>
+            Gets or sets a value whether content should be kept in memory.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.ModernFrame.ContentLoader">
+            <summary>
+            Gets or sets the content loader.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.ModernFrame.IsLoadingContent">
+            <summary>
+            Gets a value indicating whether this instance is currently loading content.
+            </summary>
+        </member>
+        <member name="P:Gu.Wpf.ModernUI.ModernFrame.CurrentSource">
+            <summary>
+            Gets or sets the source of the current content.
+            </summary>
+        </member>
+    </members>
+</doc>
