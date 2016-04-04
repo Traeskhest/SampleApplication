@@ -6,3 +6,6 @@ I added some packages to make the application executable
 
 ![alt tag](https://github.com/Traeskhest/SampleApplication/blob/master/FirstPage.JPG)
 
+![alt tag](https://github.com/Traeskhest/SampleApplication/blob/master/SecondPage.JPG)
+
+
